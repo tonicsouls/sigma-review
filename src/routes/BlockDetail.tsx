@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { useReviewStore } from '../store/useReviewStore';
 import { loadBlock } from '../utils/dataLoader';
 import ImagePreviewModal from '../components/ImagePreviewModal';
+import FlashCardRenderer from '../components/atoms/FlashCardRenderer';
+import ImageSelectRenderer from '../components/atoms/ImageSelectRenderer';
 
 type ImageReviewStatus = 'neutral' | 'keep' | 'delete' | 'regen';
 
@@ -145,28 +147,41 @@ function BlockDetail() {
                 </div>
             )}
 
-            import FlashCardRenderer from '../components/atoms/FlashCardRenderer';
-            // ... other imports
-
-            // ... inside component ...
+// Imports moved to top
 
             {/* Content Area: Quiz or Images */}
             {blockData.quiz ? (
                 <div className="detail-section">
                     <h3 className="section-title">Interactive Quiz ({blockData.quiz.quiz_type})</h3>
-                    <FlashCardRenderer
-                        data={blockData.quiz}
-                        onAddNote={(questionId, note) => {
-                            addCorrection({
-                                blockId: blockId!,
-                                hourId: hourId!,
-                                assetType: 'prompt', // Utilizing 'prompt' type for text atoms for now, or could add 'quiz' type later
-                                assetName: `Question ${questionId}`,
-                                issue: note,
-                                status: 'pending',
-                            });
-                        }}
-                    />
+                    {blockData.quiz.quiz_type === 'ImageSelect' ? (
+                        <ImageSelectRenderer
+                            data={blockData.quiz}
+                            onAddNote={(questionId, note) => {
+                                addCorrection({
+                                    blockId: blockId!,
+                                    hourId: hourId!,
+                                    assetType: 'prompt',
+                                    assetName: `Question ${questionId}`,
+                                    issue: note,
+                                    status: 'pending',
+                                });
+                            }}
+                        />
+                    ) : (
+                        <FlashCardRenderer
+                            data={blockData.quiz}
+                            onAddNote={(questionId, note) => {
+                                addCorrection({
+                                    blockId: blockId!,
+                                    hourId: hourId!,
+                                    assetType: 'prompt',
+                                    assetName: `Question ${questionId}`,
+                                    issue: note,
+                                    status: 'pending',
+                                });
+                            }}
+                        />
+                    )}
                 </div>
             ) : (
                 /* Standard Image Gallery */
