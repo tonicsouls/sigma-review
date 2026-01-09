@@ -1,9 +1,3 @@
-                                    .map((vis, idx) => {
-                                  const feedback = atomFeedback.get(vis.atom_id);
-                                  const imageSrc = vis.asset_id && vis.asset_id.startsWith('http')
-                                    ? vis.asset_id
-                                    : `/assets/images/${vis.asset_id || 'placeholder.svg'}`;
-                                  return (
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useReviewStore } from '../store/useReviewStore';
@@ -231,24 +225,27 @@ export const BlockDetail: React.FC = () => {
                                     .slice((currentAtomPage - 1) * ATOMS_PER_PAGE, currentAtomPage * ATOMS_PER_PAGE)
                                     .map((vis, idx) => {
                                   const feedback = atomFeedback.get(vis.atom_id);
+                                  const imageSrc = vis.asset_id && vis.asset_id.startsWith('http')
+                                    ? vis.asset_id
+                                    : `/assets/images/${vis.asset_id || 'placeholder.svg'}`;
                                   return (
                                     <div key={idx} className="border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden hover:border-primary/50 transition-colors">
                                         {/* Thumbnail */}
-                                        <img
-                                          src={`${imageSrc}?t=${Date.now()}`}
-                                          className="max-h-full max-w-full object-contain"
-                                          alt={`Slide ${vis.atom_id}`}
-                                          onError={(e) => {
-                                            const imgPath = imageSrc;
-                                            assetLogger.logMissingAsset(vis.atom_id, imgPath, 'image');
-                                            (e.target as HTMLImageElement).src = '/assets/images/placeholder.svg';
+                                        <div
+                                          className="relative bg-black aspect-video flex items-center justify-center cursor-pointer group"
+                                          onClick={() => {
+                                            setSelectedAtom(vis);
+                                            setShowAtomEditor(true);
                                           }}
-                                        />
+                                        >
+                                            <img
+                                                src={`${imageSrc}?t=${Date.now()}`}
+                                                className="max-h-full max-w-full object-contain"
                                                 alt={`Slide ${vis.atom_id}`}
                                                 onError={(e) => {
-                                                    const imgPath = `/assets/images/${vis.asset_id}`;
+                                                    const imgPath = imageSrc;
                                                     assetLogger.logMissingAsset(vis.atom_id, imgPath, 'image');
-                                                    (e.target as HTMLImageElement).src = 'https://placeholder.pics/svg/600x400/333333/AAAAAA/Missing';
+                                                    (e.target as HTMLImageElement).src = '/assets/images/placeholder.svg';
                                                 }}
                                             />
                                             <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
