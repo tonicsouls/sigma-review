@@ -5,6 +5,7 @@ import { Stitcher } from '../services/stitcher';
 import type { ScorpionBlock, VisualAtom } from '../services/stitcher';
 import { api } from '../services/api';
 import { AtomEditorModal } from '../components/AtomEditorModal';
+import { AudioPlayer } from '../components/AudioPlayer';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 import { assetLogger } from '../utils/assetLogger';
 
@@ -317,22 +318,54 @@ export const BlockDetail: React.FC = () => {
                                 <span className="material-symbols-outlined text-lg">headphones</span>
                                 Audio Content ({audio.length})
                             </h2>
-                            <div className="space-y-4">
+                            <div className="space-y-6">
                                 {audio.map((aud: any, idx) => (
-                                    <div key={idx} className="p-4 bg-slate-50 dark:bg-[#111318] rounded-lg border border-slate-200 dark:border-slate-800 flex items-center gap-4">
-                                        <button className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-blue-700 transition-colors">
-                                            <span className="material-symbols-outlined">play_arrow</span>
-                                        </button>
-                                        <div className="flex-1">
-                                            <p className="text-sm font-bold text-slate-900 dark:text-white">Audio Narration</p>
-                                            <p className="text-xs text-slate-500">{aud.metadata?.duration || 'Duration unknown'}</p>
+                                    <div key={idx} className="p-4 bg-slate-50 dark:bg-[#111318] rounded-lg border border-slate-200 dark:border-slate-800">
+                                        <div className="mb-4">
+                                            <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-2">Audio Track {idx + 1}</h4>
+                                            {aud.metadata?.description && (
+                                              <p className="text-xs text-slate-600 dark:text-slate-400 mb-3">{aud.metadata.description}</p>
+                                            )}
                                         </div>
-                                        <button
-                                          onClick={() => handleRegenerate()}
-                                          className="px-3 py-1.5 text-xs font-bold rounded bg-amber-100 dark:bg-amber-950/30 text-amber-700 dark:text-amber-300 hover:bg-amber-200 transition-colors"
-                                        >
-                                            🔄 Regen
-                                        </button>
+                                        
+                                        {/* Audio Player */}
+                                        {aud.url ? (
+                                          <div className="mb-4">
+                                            <AudioPlayer
+                                              src={`http://localhost:5173${aud.url}`}
+                                              duration={aud.metadata?.duration}
+                                              onError={(err) => {
+                                                assetLogger.logMissingAsset(aud.id, aud.url, 'audio');
+                                                console.error('Audio playback error:', err);
+                                              }}
+                                            />
+                                          </div>
+                                        ) : (
+                                          <div className="p-3 bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/30 rounded text-xs text-amber-700 dark:text-amber-400 mb-4">
+                                            No audio file available
+                                          </div>
+                                        )}
+
+                                        {/* Regen Button */}
+                                        <div className="flex gap-2">
+                                            <button
+                                              onClick={() => handleRegenerate()}
+                                              disabled={!!generating}
+                                              className="flex-1 px-3 py-2 text-xs font-bold rounded bg-amber-100 dark:bg-amber-950/30 text-amber-700 dark:text-amber-300 hover:bg-amber-200 dark:hover:bg-amber-950/50 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                                            >
+                                              <span className="material-symbols-outlined text-sm">🔄</span>
+                                              Regenerate Audio
+                                            </button>
+                                        </div>
+
+                                        {/* Metadata */}
+                                        {aud.metadata && Object.keys(aud.metadata).length > 0 && (
+                                          <div className="mt-4 p-3 bg-white dark:bg-[#111318] rounded text-xs text-slate-600 dark:text-slate-400 space-y-1">
+                                            {aud.metadata.duration && <p>Duration: {aud.metadata.duration}</p>}
+                                            {aud.metadata.bitrate && <p>Bitrate: {aud.metadata.bitrate}</p>}
+                                            {aud.metadata.format && <p>Format: {aud.metadata.format}</p>}
+                                          </div>
+                                        )}
                                     </div>
                                 ))}
                             </div>
