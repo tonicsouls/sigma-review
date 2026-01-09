@@ -1,0 +1,54 @@
+{
+  "block_id": "003",
+  "block_title": "Clean vs Disinfect Quiz",
+  "lesson_title": "Lesson 1",
+  "hour_name": "Hour 1",
+  "duration_minutes": 1,
+  "tdlr_citation": "§83.100",
+  "atoms": [
+    {
+      "atom_id": "script-003",
+      "atom_type": "script",
+      "metadata": {"speaker": "Instructor"},
+      "content": {
+        "SCENARIO": "Time for a quick knowledge check! Let's see how well you know the difference between the two most important words in sanitation. Get ready!",
+        "COSMETOLOGY_CONNECTION": "Quickly and confidently knowing the difference between cleaning and disinfecting is a mark of a true professional. This quick quiz will sharpen that instinct.",
+        "THE_LAW": "This quiz validates your understanding of the core definitions of 'Clean' (§83.100(2)) and 'Disinfect' (§83.100(3))."
+      }
+    },
+    {
+      "atom_id": "quiz-003",
+      "atom_type": "quiz",
+      "quiz_type": "flashcard",
+      "metadata": {"difficulty": "beginner", "points": 10},
+      "content": {
+        "questions": [
+          {
+            "id": "q1",
+            "question": "You wipe down your station to remove all visible hair clippings and product residue. This action is called:",
+            "options": [{"text": "Cleaning", "isCorrect": true}, {"text": "Disinfecting", "isCorrect": false}],
+            "feedback": "Correct! 'Cleaning' is the process of removing all visible debris. It's the essential first step."
+          },
+          {
+            "id": "q2",
+            "question": "You immerse your metal shears in a liquid that is proven to kill bacteria, viruses, and fungi. This action is called:",
+            "options": [{"text": "Cleaning", "isCorrect": false}, {"text": "Disinfecting", "isCorrect": true}],
+            "feedback": "That's right! 'Disinfecting' is the use of a chemical to destroy pathogens. This can only happen after a tool has been cleaned."
+          },
+          {
+            "id": "q3",
+            "question": "The fight against the 'invisible enemy' (pathogens) is the primary goal of:",
+            "options": [{"text": "Cleaning", "isCorrect": false}, {"text": "Disinfecting", "isCorrect": true}],
+            "feedback": "Exactly! Disinfection is all about eliminating the microscopic pathogens you can't see."
+          },
+          {
+            "id": "q4",
+            "question": "If you can SEE it (debris, hair, dust), your job is to _______ it.",
+            "options": [{"text": "Clean", "isCorrect": true}, {"text": "Disinfect", "isCorrect": false}],
+            "feedback": "You got it! If it's visible, it needs to be cleaned off before any disinfection can happen."
+          }
+        ]
+      }
+    }
+  ]
+}

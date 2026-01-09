@@ -18,7 +18,7 @@ export const mockBlocks: Record<string, ScorpionBlock> = {
       {
         atom_id: 'vis-001-a',
         atom_type: 'visual',
-        asset_id: 'https://picsum.photos/seed/vis001a/900/500',
+        asset_id: 'block_001/slide_a.png',
         metadata: {
           prompt: 'Create an image showing proper hand washing technique',
           description: 'Hand washing demonstration',
@@ -29,12 +29,62 @@ export const mockBlocks: Record<string, ScorpionBlock> = {
       {
         atom_id: 'vis-001-b',
         atom_type: 'visual',
-        asset_id: 'https://picsum.photos/seed/vis001b/900/500',
+        asset_id: 'block_001/slide_b.png',
         metadata: {
           prompt: 'Show a clean workspace with sanitation supplies',
           description: 'Clean workspace setup',
           duration: 30,
           notes: 'Bright, well-lit environment',
+        },
+      },
+      {
+        atom_id: 'vis-001-c',
+        atom_type: 'visual',
+        asset_id: 'block_001/slide_c.png',
+        metadata: {
+          prompt: 'Show disinfectant applied to shears',
+          description: 'Disinfection step',
+          duration: 30,
+        },
+      },
+      {
+        atom_id: 'vis-001-d',
+        atom_type: 'visual',
+        asset_id: 'block_001/slide_d.png',
+        metadata: {
+          prompt: 'Rinsing tools after disinfectant',
+          description: 'Rinse step',
+          duration: 30,
+        },
+      },
+      {
+        atom_id: 'vis-001-e',
+        atom_type: 'visual',
+        asset_id: 'block_001/slide_e.png',
+        metadata: {
+          prompt: 'Drying sanitized tools',
+          description: 'Dry step',
+          duration: 30,
+        },
+      },
+      {
+        atom_id: 'vis-001-f',
+        atom_type: 'visual',
+        asset_id: 'block_001/slide_f.png',
+        metadata: {
+          prompt: 'Proper storage of clean tools',
+          description: 'Storage step',
+          duration: 30,
+        },
+      },
+      {
+        atom_id: 'vis-001-g',
+        atom_type: 'visual',
+        asset_id: 'block_001/slide_g.png',
+        metadata: {
+          prompt: 'Final sanitized workstation overview',
+          description: 'Ready for client',
+          duration: 30,
         },
       },
       // Script atom
@@ -57,7 +107,7 @@ export const mockBlocks: Record<string, ScorpionBlock> = {
       {
         atom_id: 'aud-001',
         atom_type: 'audio',
-        asset_id: 'asset-aud-001.mp3',
+        asset_id: 'block_001/audio.wav',
         metadata: {
           linked_script_atom: 'script-001',
           duration: 120,
@@ -96,10 +146,60 @@ export const mockBlocks: Record<string, ScorpionBlock> = {
       {
         atom_id: 'vis-002-a',
         atom_type: 'visual',
-        asset_id: 'https://picsum.photos/seed/vis002a/900/500',
+        asset_id: 'block_002/slide_a.png',
         metadata: {
           prompt: 'Display various cosmetology tools being sanitized',
           description: 'Tool sanitization process',
+          duration: 30,
+        },
+      },
+      {
+        atom_id: 'vis-002-b',
+        atom_type: 'visual',
+        asset_id: 'block_002/slide_b.png',
+        metadata: {
+          prompt: 'Show combs submerged in disinfectant',
+          description: 'Comb disinfectant bath',
+          duration: 30,
+        },
+      },
+      {
+        atom_id: 'vis-002-c',
+        atom_type: 'visual',
+        asset_id: 'block_002/slide_c.png',
+        metadata: {
+          prompt: 'Illustrate contact time for disinfectant',
+          description: 'Dwell time',
+          duration: 30,
+        },
+      },
+      {
+        atom_id: 'vis-002-d',
+        atom_type: 'visual',
+        asset_id: 'block_002/slide_d.png',
+        metadata: {
+          prompt: 'Rinsing tools after disinfectant',
+          description: 'Rinse step',
+          duration: 30,
+        },
+      },
+      {
+        atom_id: 'vis-002-e',
+        atom_type: 'visual',
+        asset_id: 'block_002/slide_e.png',
+        metadata: {
+          prompt: 'Drying tools on clean towel',
+          description: 'Dry step',
+          duration: 30,
+        },
+      },
+      {
+        atom_id: 'vis-002-f',
+        atom_type: 'visual',
+        asset_id: 'block_002/slide_f.png',
+        metadata: {
+          prompt: 'Storing sanitized tools in closed container',
+          description: 'Storage step',
           duration: 30,
         },
       },
@@ -119,6 +219,16 @@ export const mockBlocks: Record<string, ScorpionBlock> = {
         },
       },
       {
+        atom_id: 'aud-002',
+        atom_type: 'audio',
+        asset_id: 'block_002/audio.wav',
+        metadata: {
+          linked_script_atom: 'script-002',
+          duration: 120,
+          speaker: 'Instructor voice',
+        },
+      },
+      {
         atom_id: 'quiz-002',
         atom_type: 'quiz',
         quiz_type: 'multiple-choice',
@@ -134,6 +244,54 @@ export const mockBlocks: Record<string, ScorpionBlock> = {
             { text: 'Once a week', isCorrect: false },
           ],
           feedback: 'Tools must be sanitized between every client interaction.',
+        },
+      },
+    ],
+  },
+  '004': {
+    block_id: '004',
+    block_title: 'Block 004 - Disinfection Deep Dive',
+    lesson_title: 'Lesson 4',
+    hour_name: 'Hour 1',
+    duration_minutes: 5,
+    tdlr_citation: 'Advanced disinfection steps',
+    atoms: [
+      { atom_id: 'vis-004-a', atom_type: 'visual', asset_id: 'block_004/slide_a.png', metadata: { description: 'Setup', duration: 30 } },
+      { atom_id: 'vis-004-b', atom_type: 'visual', asset_id: 'block_004/slide_b.png', metadata: { description: 'Step 1', duration: 30 } },
+      { atom_id: 'vis-004-c', atom_type: 'visual', asset_id: 'block_004/slide_c.png', metadata: { description: 'Step 2', duration: 30 } },
+      { atom_id: 'vis-004-d', atom_type: 'visual', asset_id: 'block_004/slide_d.png', metadata: { description: 'Step 3', duration: 30 } },
+      { atom_id: 'vis-004-e', atom_type: 'visual', asset_id: 'block_004/slide_e.png', metadata: { description: 'Step 4', duration: 30 } },
+      { atom_id: 'vis-004-f', atom_type: 'visual', asset_id: 'block_004/slide_f.png', metadata: { description: 'Step 5', duration: 30 } },
+      { atom_id: 'vis-004-g', atom_type: 'visual', asset_id: 'block_004/slide_g.png', metadata: { description: 'Step 6', duration: 30 } },
+      {
+        atom_id: 'script-004',
+        atom_type: 'script',
+        metadata: { speaker: 'Instructor' },
+        content: {
+          SCENARIO: 'Demonstrating thorough disinfection workflow end-to-end.',
+          COSMETOLOGY_CONNECTION: 'Ensures compliance and client safety.',
+          THE_LAW: 'Follow state-mandated disinfection standards for implements and surfaces.',
+        },
+      },
+      {
+        atom_id: 'aud-004',
+        atom_type: 'audio',
+        asset_id: 'block_004/audio.wav',
+        metadata: { linked_script_atom: 'script-004', duration: 120, speaker: 'Instructor voice' },
+      },
+      {
+        atom_id: 'quiz-004',
+        atom_type: 'quiz',
+        quiz_type: 'multiple-choice',
+        metadata: { difficulty: 'intermediate', points: 10 },
+        content: {
+          question: 'What is the correct order of disinfection steps?',
+          options: [
+            { text: 'Clean, Disinfect, Rinse, Dry, Store', isCorrect: true },
+            { text: 'Disinfect, Clean, Store', isCorrect: false },
+            { text: 'Store, Clean, Disinfect', isCorrect: false },
+          ],
+          feedback: 'Follow the full sequence to ensure effectiveness and safety.',
         },
       },
     ],

@@ -1,73 +1,25 @@
-# React + TypeScript + Vite
+# Scorpion Studio Review App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Front-end for reviewing course blocks (images, audio, scripts, quizzes) in Vite + React + TS.
 
-Currently, two official plugins are available:
+## Implementation Plan (current state)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Asset roots (source of truth)
+  - Hour 1 Draft: DRAFT CONTENT/h1/Hour 1 - Sanitation/block_003 (manifest.json, quiz.json)
+  - Hour 3 Draft example: DRAFT CONTENT/h3/Hour 3/3.028 (manifest, scripts, prompts)
+  - Hour 4 Draft example: DRAFT CONTENT/h4/Hour 4/4.016 (manifest, quiz, scripts)
+  - Generated media: SIGMA/v3/block_001, block_002, block_004 (slides/audio)
 
-## React Compiler
+- Served assets (what the app loads)
+  - Images: public/assets/images/block_XXX/*.png
+  - Audio: public/assets/audio/block_XXX/audio.wav
+  - Manifests: public/assets/manifests/block_XXX.json (ordered atoms)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Loader behavior
+  - BlockDetail reads `/assets/manifests/block_{id}.json` and renders atoms in manifest order.
+  - Atom ordering is defined explicitly by the `atoms` array in each manifest (no folder scanning).
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Next steps (when more blocks are added)
+  - Drop new slides/audio into `public/assets/images/block_XXX` and `public/assets/audio/block_XXX`.
+  - Add a manifest JSON in `public/assets/manifests/block_XXX.json` with ordered atoms referencing those paths.
+  - Keep using filename conventions (slide_a.png, slide_b.png, …) for clarity, but ordering is governed by the manifest.

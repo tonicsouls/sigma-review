@@ -1,0 +1,20 @@
+{
+  "block_id": "001",
+  "block_title": "Block 001 - Introduction",
+  "lesson_title": "Lesson 1",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "Sanitation basics overview",
+  "atoms": [
+    {"atom_id":"vis-001-a","atom_type":"visual","asset_id":"block_001/slide_a.png","metadata":{"prompt":"Create an image showing proper hand washing technique","description":"Hand washing demonstration"}},
+    {"atom_id":"vis-001-b","atom_type":"visual","asset_id":"block_001/slide_b.png","metadata":{"prompt":"Show a clean workspace with sanitation supplies","description":"Clean workspace setup"}},
+    {"atom_id":"vis-001-c","atom_type":"visual","asset_id":"block_001/slide_c.png","metadata":{"prompt":"Show disinfectant applied to shears","description":"Disinfection step"}},
+    {"atom_id":"vis-001-d","atom_type":"visual","asset_id":"block_001/slide_d.png","metadata":{"prompt":"Rinsing tools after disinfectant","description":"Rinse step"}},
+    {"atom_id":"vis-001-e","atom_type":"visual","asset_id":"block_001/slide_e.png","metadata":{"prompt":"Drying sanitized tools","description":"Dry step"}},
+    {"atom_id":"vis-001-f","atom_type":"visual","asset_id":"block_001/slide_f.png","metadata":{"prompt":"Proper storage of clean tools","description":"Storage step"}},
+    {"atom_id":"vis-001-g","atom_type":"visual","asset_id":"block_001/slide_g.png","metadata":{"prompt":"Final sanitized workstation overview","description":"Ready for client"}},
+    {"atom_id":"script-001","atom_type":"script","metadata":{"speaker":"Instructor"},"content":{"SCENARIO":"A cosmetologist begins their day by properly sanitizing their workspace and hands before working with clients.","COSMETOLOGY_CONNECTION":"Proper sanitation prevents disease transmission and maintains professional standards in cosmetology.","THE_LAW":"State regulations require sanitization of all tools and workspace before client contact."}},
+    {"atom_id":"aud-001","atom_type":"audio","asset_id":"block_001/audio.wav","metadata":{"linked_script_atom":"script-001","duration":120,"speaker":"Professional voice"}},
+    {"atom_id":"quiz-001","atom_type":"quiz","quiz_type":"multiple-choice","metadata":{"difficulty":"beginner","points":10},"content":{"question":"What is the first step in proper sanitation?","options":[{"text":"Wash hands with soap and water","isCorrect":true},{"text":"Put on gloves","isCorrect":false},{"text":"Apply sanitizer","isCorrect":false}],"feedback":"Hand washing with soap and water is the foundation of sanitation."}}
+  ]
+}

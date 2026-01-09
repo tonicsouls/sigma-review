@@ -8,7 +8,6 @@ import { AtomEditorModal } from '../components/AtomEditorModal';
 import { AudioPlayer } from '../components/AudioPlayer';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 import { assetLogger } from '../utils/assetLogger';
-import { getMockBlock } from '../utils/mockData';
 
 const ATOMS_PER_PAGE = 10;
 
@@ -33,45 +32,30 @@ export const BlockDetail: React.FC = () => {
     const [currentAtomPage, setCurrentAtomPage] = useState(1);
 
     const fetchDeepBlock = async () => {
-        if (!blockId) {
-            setError('No block ID provided');
-            setLoading(false);
-            return;
-        }
-        setLoading(true);
-        setError(null);
-        try {
-            const stitcher = Stitcher.getInstance();
-            const manifest = await stitcher.fetchManifest(preferences.backendUrl);
-            
-            let deepBlock: ScorpionBlock | null = null;
-            
-            // Try API first, fall back to mock data
-            if (manifest && manifest.length > 0) {
-                const blockPath = manifest.find(p => p.includes(blockId));
-                if (blockPath) {
-                    deepBlock = await stitcher.fetchBlock(preferences.backendUrl, blockPath);
-                }
-            }
-            
-            // Fall back to mock data if API failed
-            if (!deepBlock) {
-                console.warn('API failed, loading mock data for block:', blockId);
-                deepBlock = getMockBlock(blockId);
-            }
-            
-            if (!deepBlock) {
-                throw new Error(`Block ${blockId} not found in manifest or mock data`);
-            }
-            setBlock(deepBlock);
-        } catch (err) {
-            const errorMsg = err instanceof Error ? err.message : 'Unknown error loading block';
-            setError(errorMsg);
-            assetLogger.logManifestError(errorMsg, `block/${blockId}`);
-            console.error('BlockDetail fetch error:', err);
-        } finally {
-            setLoading(false);
-        }
+      if (!blockId) {
+        setError('No block ID provided');
+        setLoading(false);
+        return;
+      }
+      setLoading(true);
+      setError(null);
+      try {
+        // Local manifest fallback (no backend)
+        const manifestUrl = `/assets/manifests/block_${blockId}.json`;
+        const res = await fetch(manifestUrl);
+        if (!res.ok) throw new Error(`Local manifest not found (${manifestUrl})`);
+        const json = await res.json();
+        const stitcher = Stitcher.getInstance();
+        const parsed = stitcher.parseBlock(json);
+        setBlock(parsed);
+      } catch (err) {
+        const errorMsg = err instanceof Error ? err.message : 'Unknown error loading block';
+        setError(errorMsg);
+        assetLogger.logManifestError(errorMsg, `block/${blockId}`);
+        console.error('BlockDetail fetch error:', err);
+      } finally {
+        setLoading(false);
+      }
     };
 
     useEffect(() => {
@@ -224,12 +208,13 @@ export const BlockDetail: React.FC = () => {
                                 {visuals
                                     .slice((currentAtomPage - 1) * ATOMS_PER_PAGE, currentAtomPage * ATOMS_PER_PAGE)
                                     .map((vis, idx) => {
-                                  const feedback = atomFeedback.get(vis.atom_id);
+                                  const safeId = vis.atom_id || vis.asset_id || `visual-${idx}`;
+                                  const feedback = atomFeedback.get(safeId);
                                   const imageSrc = vis.asset_id && vis.asset_id.startsWith('http')
                                     ? vis.asset_id
                                     : `/assets/images/${vis.asset_id || 'placeholder.svg'}`;
                                   return (
-                                    <div key={idx} className="border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden hover:border-primary/50 transition-colors">
+                                    <div key={safeId} className="border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden hover:border-primary/50 transition-colors">
                                         {/* Thumbnail */}
                                         <div
                                           className="relative bg-black aspect-video flex items-center justify-center cursor-pointer group"
@@ -241,10 +226,10 @@ export const BlockDetail: React.FC = () => {
                                             <img
                                                 src={`${imageSrc}?t=${Date.now()}`}
                                                 className="max-h-full max-w-full object-contain"
-                                                alt={`Slide ${vis.atom_id}`}
+                                                alt={`Slide ${safeId}`}
                                                 onError={(e) => {
                                                     const imgPath = imageSrc;
-                                                    assetLogger.logMissingAsset(vis.atom_id, imgPath, 'image');
+                                                  assetLogger.logMissingAsset(safeId, imgPath, 'image');
                                                     (e.target as HTMLImageElement).src = '/assets/images/placeholder.svg';
                                                 }}
                                             />
@@ -256,7 +241,7 @@ export const BlockDetail: React.FC = () => {
                                         {/* Meta */}
                                         <div className="p-4 border-t border-slate-200 dark:border-slate-800 space-y-3">
                                             <div className="flex items-center justify-between">
-                                                <span className="text-xs font-bold text-slate-600 dark:text-slate-400">Slide {vis.atom_id?.toUpperCase() || 'N/A'}</span>
+                                                <span className="text-xs font-bold text-slate-600 dark:text-slate-400">Slide {safeId.toUpperCase()}</span>
                                                 {feedback && (
                                                   <span className={`text-[10px] px-2 py-1 rounded font-bold ${
                                                     feedback.status === 'keep' ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300' :
@@ -272,7 +257,7 @@ export const BlockDetail: React.FC = () => {
                                             {/* Quick Actions */}
                                             <div className="flex gap-2">
                                                 <button
-                                                  onClick={() => handleAtomAction(vis.atom_id, 'keep')}
+                                                  onClick={() => handleAtomAction(safeId, 'keep')}
                                                   className="flex-1 py-1.5 px-2 text-[10px] font-bold rounded bg-emerald-100 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-emerald-950/50 transition-colors"
                                                 >
                                                   ✅ Keep
@@ -285,7 +270,7 @@ export const BlockDetail: React.FC = () => {
                                                   🔄 Regen
                                                 </button>
                                                 <button
-                                                  onClick={() => handleAtomAction(vis.atom_id, 'delete')}
+                                                  onClick={() => handleAtomAction(safeId, 'delete')}
                                                   className="flex-1 py-1.5 px-2 text-[10px] font-bold rounded bg-red-100 dark:bg-red-950/30 text-red-700 dark:text-red-300 hover:bg-red-200 dark:hover:bg-red-950/50 transition-colors"
                                                 >
                                                   🔴 Delete
