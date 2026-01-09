@@ -2,12 +2,15 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useReviewStore } from '../store/useReviewStore';
 import { loadHourBlocks } from '../utils/dataLoader';
+import { ErrorBoundary } from '../components/ErrorBoundary';
+import { assetLogger } from '../utils/assetLogger';
 
 export const BlockGrid: React.FC = () => {
     const { hourId = '1' } = useParams();
     const navigate = useNavigate();
     const { blocks, setBlocks, preferences, corrections, exportCorrections } = useReviewStore();
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     const handleExportHour = () => {
         const hourCorrections = corrections.filter(c => c.hourId === hourId);
@@ -26,19 +29,77 @@ export const BlockGrid: React.FC = () => {
     useEffect(() => {
         const fetchBlocks = async () => {
             setLoading(true);
-            const loadedBlocks = await loadHourBlocks(`h${hourId}`);
-            setBlocks(loadedBlocks);
-            setLoading(false);
+            setError(null);
+            try {
+                const loadedBlocks = await loadHourBlocks(`h${hourId}`);
+                if (!loadedBlocks || loadedBlocks.length === 0) {
+                    assetLogger.logManifestError(`No blocks found for hour ${hourId}`, `hour-${hourId}`);
+                }
+                setBlocks(loadedBlocks);
+            } catch (err) {
+                const errMsg = err instanceof Error ? err.message : 'Failed to load blocks';
+                setError(errMsg);
+                assetLogger.logNetworkError(errMsg, { hour: hourId, endpoint: '/loadHourBlocks' });
+            } finally {
+                setLoading(false);
+            }
         };
         fetchBlocks();
     }, [hourId, preferences.backendUrl]);
+
+    if (error) {
+        return (
+            <ErrorBoundary>
+                <div className="flex-1 flex items-center justify-center p-6">
+                    <div className="max-w-2xl w-full p-6 bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900/30 rounded-lg">
+                        <div className="flex items-start gap-4">
+                            <span className="material-symbols-outlined text-3xl text-red-600 dark:text-red-400 shrink-0">error</span>
+                            <div className="flex-1">
+                                <h2 className="text-lg font-bold text-red-900 dark:text-red-300 mb-2">Failed to Load Hour</h2>
+                                <p className="text-sm text-red-800 dark:text-red-400 font-mono mb-4">{error}</p>
+                                <button
+                                    onClick={() => window.location.reload()}
+                                    className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-bold rounded transition-colors"
+                                >
+                                    Reload Page
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ErrorBoundary>
+        );
+    }
 
     if (loading) {
         return <div className="p-8 text-center text-slate-500">Loading Content Atoms from Stitcher...</div>;
     }
 
+    // Empty state
+    if (!blocks || blocks.length === 0) {
+        return (
+            <ErrorBoundary>
+                <div className="flex-1 flex flex-col h-full bg-background-light dark:bg-background-dark overflow-hidden">
+                    <header className="h-16 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111318] flex items-center justify-between px-8 shrink-0">
+                        <h2 className="text-slate-900 dark:text-white text-lg font-bold tracking-tight">Hour {hourId.padStart(2, '0')} Blocks</h2>
+                    </header>
+                    <div className="flex-1 flex items-center justify-center">
+                        <div className="text-center">
+                            <span className="material-symbols-outlined text-5xl text-slate-300 dark:text-slate-700 mb-4 block">inbox</span>
+                            <h3 className="text-lg font-bold text-slate-700 dark:text-slate-300 mb-1">No Blocks Found</h3>
+                            <p className="text-sm text-slate-500 mb-4">Hour {hourId} has no content blocks available.</p>
+                            <a href="/#/" className="px-4 py-2 bg-primary text-white text-sm font-bold rounded-lg hover:bg-blue-700 transition-colors inline-block">
+                                Back to Overview
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </ErrorBoundary>
+        );
+    }
+
     return (
-        <div className="flex-1 flex flex-col h-full bg-background-light dark:bg-background-dark overflow-hidden">
+        <ErrorBoundary>
             {/* Header */}
             <header className="h-16 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111318] flex items-center justify-between px-8 shrink-0">
                 <div className="flex items-center gap-8">
@@ -73,7 +134,10 @@ export const BlockGrid: React.FC = () => {
             <div className="flex-1 overflow-y-auto p-8 custom-scrollbar">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {blocks.map(block => (
-                        <a href={`#/hour/${hourId}/block/${block.blockId}`} key={block.blockId} className="group scorp-card flex flex-col">
+                        <div 
+                            key={block.blockId} 
+                            onClick={() => navigate(`/hour/${hourId}/block/${block.blockId}`)}
+                            className="group scorp-card flex flex-col cursor-pointer">
                             <div className="aspect-video w-full bg-slate-100 dark:bg-[#282e39] relative">
                                 {/* Thumbnail (Gradient for now) */}
                                 <div className="w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center">
@@ -99,7 +163,7 @@ export const BlockGrid: React.FC = () => {
                                     {block.durationMinutes} min • {block.blockId}
                                 </p>
                             </div>
-                        </a>
+                        </div>
                     ))}
 
                     {/* Placeholder for 'New Block' */}
@@ -122,6 +186,7 @@ export const BlockGrid: React.FC = () => {
                     <span>SCORPION_STUDIO_V2</span>
                 </div>
             </footer>
-        </div>
+            </div>
+        </ErrorBoundary>
     );
 };

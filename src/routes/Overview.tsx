@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useReviewStore } from '../store/useReviewStore';
 import { loadHourBlocks } from '../utils/dataLoader';
+import { ErrorBoundary } from '../components/ErrorBoundary';
+import { assetLogger } from '../utils/assetLogger';
 
 interface HourStats {
   hourId: number;
@@ -37,19 +39,32 @@ export const Overview: React.FC = () => {
       const stats: HourStats[] = [];
 
       for (let i = 1; i <= 4; i++) {
-        const blocks = await loadHourBlocks(`h${i}`);
-        const reviewed = blocks.filter((b: any) => b.status === 'Reviewed').length;
-        const pending = blocks.filter((b: any) => b.status === 'Pending').length;
-        const corrections = blocks.filter((b: any) => b.status === 'Corrections').length;
+        try {
+          const blocks = await loadHourBlocks(`h${i}`);
+          const reviewed = blocks.filter((b: any) => b.status === 'Reviewed').length;
+          const pending = blocks.filter((b: any) => b.status === 'Pending').length;
+          const corrections = blocks.filter((b: any) => b.status === 'Corrections').length;
 
-        stats.push({
-          hourId: i,
-          title: i === 1 ? 'Sanitation' : i === 2 ? 'Trafficking' : i === 3 ? 'Protocols' : 'Safety',
-          totalBlocks: blocks.length,
-          reviewed,
-          pending,
-          corrections,
-        });
+          stats.push({
+            hourId: i,
+            title: i === 1 ? 'Sanitation' : i === 2 ? 'Trafficking' : i === 3 ? 'Protocols' : 'Safety',
+            totalBlocks: blocks.length,
+            reviewed,
+            pending,
+            corrections,
+          });
+        } catch (err) {
+          const errMsg = err instanceof Error ? err.message : `Failed to load Hour ${i}`;
+          assetLogger.logNetworkError(errMsg, { hour: i });
+          stats.push({
+            hourId: i,
+            title: i === 1 ? 'Sanitation' : i === 2 ? 'Trafficking' : i === 3 ? 'Protocols' : 'Safety',
+            totalBlocks: 0,
+            reviewed: 0,
+            pending: 0,
+            corrections: 0,
+          });
+        }
       }
 
       setHours(stats);
@@ -68,7 +83,8 @@ export const Overview: React.FC = () => {
   const totalPending = hours.reduce((sum, h) => sum + h.pending, 0);
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-background-light dark:bg-background-dark overflow-hidden">
+    <ErrorBoundary>
+      <div className="flex-1 flex flex-col h-full bg-background-light dark:bg-background-dark overflow-hidden">
       {/* Header */}
       <header className="h-16 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111318] flex items-center justify-between px-8 shrink-0">
         <div className="flex items-center gap-8">
@@ -184,5 +200,4 @@ export const Overview: React.FC = () => {
         </div>
       </footer>
     </div>
-  );
-};
+    </ErrorBoundary>
