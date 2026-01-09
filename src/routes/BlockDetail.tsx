@@ -1,3 +1,9 @@
+                                    .map((vis, idx) => {
+                                  const feedback = atomFeedback.get(vis.atom_id);
+                                  const imageSrc = vis.asset_id && vis.asset_id.startsWith('http')
+                                    ? vis.asset_id
+                                    : `/assets/images/${vis.asset_id || 'placeholder.svg'}`;
+                                  return (
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useReviewStore } from '../store/useReviewStore';
@@ -228,16 +234,16 @@ export const BlockDetail: React.FC = () => {
                                   return (
                                     <div key={idx} className="border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden hover:border-primary/50 transition-colors">
                                         {/* Thumbnail */}
-                                        <div
-                                          className="relative bg-black aspect-video flex items-center justify-center cursor-pointer group"
-                                          onClick={() => {
-                                            setSelectedAtom(vis);
-                                            setShowAtomEditor(true);
+                                        <img
+                                          src={`${imageSrc}?t=${Date.now()}`}
+                                          className="max-h-full max-w-full object-contain"
+                                          alt={`Slide ${vis.atom_id}`}
+                                          onError={(e) => {
+                                            const imgPath = imageSrc;
+                                            assetLogger.logMissingAsset(vis.atom_id, imgPath, 'image');
+                                            (e.target as HTMLImageElement).src = '/assets/images/placeholder.svg';
                                           }}
-                                        >
-                                            <img
-                                                src={`/assets/images/${vis.asset_id}?t=${Date.now()}`}
-                                                className="max-h-full max-w-full object-contain"
+                                        />
                                                 alt={`Slide ${vis.atom_id}`}
                                                 onError={(e) => {
                                                     const imgPath = `/assets/images/${vis.asset_id}`;

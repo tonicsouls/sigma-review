@@ -18,7 +18,7 @@ export const mockBlocks: Record<string, ScorpionBlock> = {
       {
         atom_id: 'vis-001-a',
         atom_type: 'visual',
-        asset_id: 'asset-img-001a.webp',
+        asset_id: 'https://picsum.photos/seed/vis001a/900/500',
         metadata: {
           prompt: 'Create an image showing proper hand washing technique',
           description: 'Hand washing demonstration',
@@ -29,7 +29,7 @@ export const mockBlocks: Record<string, ScorpionBlock> = {
       {
         atom_id: 'vis-001-b',
         atom_type: 'visual',
-        asset_id: 'asset-img-001b.webp',
+        asset_id: 'https://picsum.photos/seed/vis001b/900/500',
         metadata: {
           prompt: 'Show a clean workspace with sanitation supplies',
           description: 'Clean workspace setup',
@@ -96,7 +96,7 @@ export const mockBlocks: Record<string, ScorpionBlock> = {
       {
         atom_id: 'vis-002-a',
         atom_type: 'visual',
-        asset_id: 'asset-img-002a.webp',
+        asset_id: 'https://picsum.photos/seed/vis002a/900/500',
         metadata: {
           prompt: 'Display various cosmetology tools being sanitized',
           description: 'Tool sanitization process',
