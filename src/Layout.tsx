@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { useReviewStore } from './store/useReviewStore';
+import { ActivityLog } from './components/ActivityLog';
 
 function Layout() {
     const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -96,6 +97,8 @@ function Layout() {
                 <div className="p-8 pb-32">
                     <Outlet />
                 </div>
+
+                <ActivityLog />
             </main>
         </div>
     );

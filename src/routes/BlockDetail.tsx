@@ -5,6 +5,7 @@ import { loadBlock } from '../utils/dataLoader';
 import ImagePreviewModal from '../components/ImagePreviewModal';
 import FlashCardRenderer from '../components/atoms/FlashCardRenderer';
 import ImageSelectRenderer from '../components/atoms/ImageSelectRenderer';
+import PromptEditor from '../components/PromptEditor';
 
 type ImageReviewStatus = 'neutral' | 'keep' | 'delete' | 'regen';
 
@@ -28,6 +29,7 @@ function BlockDetail() {
     const [imageStatuses, setImageStatuses] = useState<Map<string, ImageReviewStatus>>(new Map());
     const [selectedImage, setSelectedImage] = useState<{ url: string; name: string } | null>(null);
     const { corrections, addCorrection, exportCorrections } = useReviewStore();
+    const [viewMode, setViewMode] = useState<'reviewer' | 'student'>('reviewer');
 
     useEffect(() => {
         async function loadData() {
@@ -111,19 +113,50 @@ function BlockDetail() {
         );
     }
 
+    // Filtered images for Student View
+    const displayedImages = blockData.images.filter(img => {
+        if (viewMode === 'reviewer') return true;
+        const imageName = img.split('/').pop() || img;
+        return imageStatuses.get(imageName) !== 'delete';
+    });
+
     return (
         <div className="container">
-            <div className="mb-6">
-                <a href={`/hour/${hourId}`} className="back-link">
-                    ← Back to Blocks
-                </a>
-                <h2 className="page-title">
-                    <span className="text-gray-400 font-normal text-xl mr-2">Hour {hourId} / Block {blockId}:</span>
-                    {blockData.title}
-                </h2>
-                <p className="text-sm text-gray-600 mt-2">
-                    Type: {blockData.atomType} | Duration: {blockData.durationMinutes} min
-                </p>
+            <div className="mb-6 flex justify-between items-start">
+                <div>
+                    <a href={`/hour/${hourId}`} className="back-link">
+                        ← Back to Blocks
+                    </a>
+                    <h2 className="page-title">
+                        <span className="text-gray-400 font-normal text-xl mr-2">Hour {hourId} / Block {blockId}:</span>
+                        {blockData.title}
+                    </h2>
+                    <p className="text-sm text-gray-600 mt-2">
+                        Type: {blockData.atomType} | Duration: {blockData.durationMinutes} min
+                    </p>
+                </div>
+
+                {/* View Mode Toggle */}
+                <div className="bg-white dark:bg-gray-800 p-1 rounded-lg border border-gray-200 dark:border-gray-700 flex gap-1">
+                    <button
+                        onClick={() => setViewMode('reviewer')}
+                        className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${viewMode === 'reviewer'
+                            ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300'
+                            : 'text-gray-500 hover:text-gray-700 dark:text-gray-400'
+                            }`}
+                    >
+                        Reviewer Mode
+                    </button>
+                    <button
+                        onClick={() => setViewMode('student')}
+                        className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${viewMode === 'student'
+                            ? 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300'
+                            : 'text-gray-500 hover:text-gray-700 dark:text-gray-400'
+                            }`}
+                    >
+                        Student View
+                    </button>
+                </div>
             </div>
 
             {/* Audio Player */}
@@ -137,13 +170,40 @@ function BlockDetail() {
                 </div>
             )}
 
-            {/* Audio Script */}
+            {/* Audio Script Editor */}
             {blockData.audioScript && (
                 <div className="detail-section">
-                    <details>
-                        <summary className="section-title cursor-pointer">Audio Script (click to expand)</summary>
-                        <pre className="prompt-text mt-2">{blockData.audioScript}</pre>
-                    </details>
+                    <button
+                        className="section-title cursor-pointer mb-2 flex items-center gap-2"
+                        onClick={() => {/* Toggle collapse logic if desired */ }}
+                    >
+                        <span>Audio Script</span>
+                    </button>
+                    <PromptEditor
+                        title="Script Content"
+                        initialPrompt={blockData.audioScript}
+                        onSave={(newScript) => {
+                            addCorrection({
+                                blockId: blockId!,
+                                hourId: hourId!,
+                                assetType: 'script',
+                                assetName: 'script.txt',
+                                issue: `[UPDATE] New script content: ${newScript.substring(0, 50)}...`,
+                                status: 'pending',
+                            });
+                        }}
+                        onRegen={(newScript) => {
+                            addCorrection({
+                                blockId: blockId!,
+                                hourId: hourId!,
+                                assetType: 'script',
+                                assetName: 'script.txt',
+                                issue: `[REGEN REQUEST] TTS Generation for: ${newScript.substring(0, 50)}...`,
+                                status: 'pending',
+                            });
+                            alert("TTS Regeneration requested!");
+                        }}
+                    />
                 </div>
             )}
 
@@ -186,9 +246,15 @@ function BlockDetail() {
             ) : (
                 /* Standard Image Gallery */
                 <div className="detail-section">
-                    <h3 className="section-title">Images ({blockData.images.length})</h3>
+                    <h3 className="section-title">Images ({displayedImages.length})</h3>
+                    {viewMode === 'student' && displayedImages.length === 0 && (
+                        <div className="p-8 text-center text-gray-500 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                            <span className="block text-2xl mb-2">🚫</span>
+                            No images visible in Student View (all deleted or empty)
+                        </div>
+                    )}
                     <div className="compact-image-grid">
-                        {blockData.images.map((imageUrl) => {
+                        {displayedImages.map((imageUrl) => {
                             const imageName = imageUrl.split('/').pop() || imageUrl;
                             const status = imageStatuses.get(imageName) || 'neutral';
                             return (
@@ -200,12 +266,14 @@ function BlockDetail() {
                                     <img src={imageUrl} alt={imageName} className="compact-image-thumb" />
                                     <div className="compact-image-meta">
                                         <span title={imageName} className="compact-image-name">{imageName}</span>
-                                        <span className={`status-badge text-[10px] ${status}`}>
-                                            {status === 'keep' && '🟢'}
-                                            {status === 'delete' && '🔴'}
-                                            {status === 'regen' && '🟡'}
-                                            {status === 'neutral' && '⚪'}
-                                        </span>
+                                        {viewMode === 'reviewer' && (
+                                            <span className={`status-badge text-[10px] ${status}`}>
+                                                {status === 'keep' && '🟢'}
+                                                {status === 'delete' && '🔴'}
+                                                {status === 'regen' && '🟡'}
+                                                {status === 'neutral' && '⚪'}
+                                            </span>
+                                        )}
                                     </div>
                                 </div>
                             );
@@ -214,13 +282,43 @@ function BlockDetail() {
                 </div>
             )}
 
-            {/* Image Prompts (Only show if images exist or if needed) */}
+            {/* Image Prompts Editor */}
             {blockData.imagePrompts && !blockData.quiz && (
                 <div className="detail-section">
-                    <details>
-                        <summary className="section-title cursor-pointer">Image Prompts (click to expand)</summary>
-                        <pre className="prompt-text mt-2">{blockData.imagePrompts}</pre>
-                    </details>
+                    <button
+                        className="section-title cursor-pointer mb-2 flex items-center gap-2"
+                        onClick={() => {/* Toggle collapse logic if desired, or keep open */ }}
+                    >
+                        <span>Image Prompts</span>
+                    </button>
+                    <PromptEditor
+                        initialPrompt={blockData.imagePrompts}
+                        onSave={(newPrompt) => {
+                            // TODO: Persist to file system
+                            console.log('Saved prompt:', newPrompt);
+                            addCorrection({
+                                blockId: blockId!,
+                                hourId: hourId!,
+                                assetType: 'prompt',
+                                assetName: 'image_prompts.txt',
+                                issue: `[UPDATE] New prompt content: ${newPrompt.substring(0, 50)}...`,
+                                status: 'pending',
+                            });
+                        }}
+                        onRegen={(newPrompt) => {
+                            // TODO: Call generation API
+                            console.log('Regen requested for:', newPrompt);
+                            addCorrection({
+                                blockId: blockId!,
+                                hourId: hourId!,
+                                assetType: 'prompt',
+                                assetName: 'image_prompts.txt',
+                                issue: `[REGEN REQUEST] ${newPrompt.substring(0, 50)}...`,
+                                status: 'pending',
+                            });
+                            alert("Regeneration request logged! (Backend integration pending)");
+                        }}
+                    />
                 </div>
             )}
 
@@ -268,6 +366,13 @@ function BlockDetail() {
                     onStatusChange={handleStatusChange}
                     onClose={() => setSelectedImage(null)}
                     onAddNote={handleImageNote}
+                    onRegen={() => {
+                        console.log(`Regen requested for ${selectedImage.name}`);
+                        // Set status to regen
+                        handleStatusChange('regen');
+                        // Add correction note
+                        handleImageNote('[QUICK REGEN] User requested immediate regeneration');
+                    }}
                 />
             )}
         </div>
