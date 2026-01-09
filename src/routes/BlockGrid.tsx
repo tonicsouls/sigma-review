@@ -5,12 +5,15 @@ import { loadHourBlocks } from '../utils/dataLoader';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 import { assetLogger } from '../utils/assetLogger';
 
+const BLOCKS_PER_PAGE = 10;
+
 export const BlockGrid: React.FC = () => {
     const { hourId = '1' } = useParams();
     const navigate = useNavigate();
     const { blocks, setBlocks, preferences, corrections, exportCorrections } = useReviewStore();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [currentPage, setCurrentPage] = useState(1);
 
     const handleExportHour = () => {
         const hourCorrections = corrections.filter(c => c.hourId === hourId);
@@ -132,8 +135,10 @@ export const BlockGrid: React.FC = () => {
 
             {/* Content Grid */}
             <div className="flex-1 overflow-y-auto p-8 custom-scrollbar">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {blocks.map(block => (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                    {blocks
+                        .slice((currentPage - 1) * BLOCKS_PER_PAGE, currentPage * BLOCKS_PER_PAGE)
+                        .map(block => (
                         <div 
                             key={block.blockId} 
                             onClick={() => navigate(`/hour/${hourId}/block/${block.blockId}`)}
@@ -165,8 +170,38 @@ export const BlockGrid: React.FC = () => {
                             </div>
                         </div>
                     ))}
+                </div>
 
-                    {/* Placeholder for 'New Block' */}
+                {/* Pagination Controls */}
+                {blocks.length > BLOCKS_PER_PAGE && (
+                    <div className="mt-8 flex items-center justify-center gap-4">
+                        <button
+                            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                            disabled={currentPage === 1}
+                            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors"
+                        >
+                            <span className="material-symbols-outlined">chevron_left</span>
+                            Previous
+                        </button>
+                        <div className="flex items-center gap-2">
+                            <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                                Page {currentPage} of {Math.ceil(blocks.length / BLOCKS_PER_PAGE)}
+                            </span>
+                        </div>
+                        <button
+                            onClick={() => setCurrentPage(prev => Math.min(prev + 1, Math.ceil(blocks.length / BLOCKS_PER_PAGE)))}
+                            disabled={currentPage >= Math.ceil(blocks.length / BLOCKS_PER_PAGE)}
+                            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors"
+                        >
+                            Next
+                            <span className="material-symbols-outlined">chevron_right</span>
+                        </button>
+                    </div>
+                )}
+            </div>
+
+            {/* Placeholder for 'New Block' - Removed from grid */}
+            {/* 
                     <div className="group border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:bg-slate-50 dark:hover:bg-[#1c1f27]/50 transition-all duration-200 flex items-center justify-center h-[210px] cursor-pointer opacity-60">
                         <div className="flex flex-col items-center gap-2 text-slate-400">
                             <span className="material-symbols-outlined text-3xl">add_circle</span>
@@ -186,7 +221,6 @@ export const BlockGrid: React.FC = () => {
                     <span>SCORPION_STUDIO_V2</span>
                 </div>
             </footer>
-            </div>
         </ErrorBoundary>
     );
 };

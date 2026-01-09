@@ -9,6 +9,8 @@ import { AudioPlayer } from '../components/AudioPlayer';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 import { assetLogger } from '../utils/assetLogger';
 
+const ATOMS_PER_PAGE = 10;
+
 interface AtomFeedback {
   atomId: string;
   status: 'keep' | 'delete' | 'regen' | 'note';
@@ -27,6 +29,7 @@ export const BlockDetail: React.FC = () => {
     const [selectedAtom, setSelectedAtom] = useState<VisualAtom | null>(null);
     const [showAtomEditor, setShowAtomEditor] = useState(false);
     const [atomFeedback, setAtomFeedback] = useState<Map<string, AtomFeedback>>(new Map());
+    const [currentAtomPage, setCurrentAtomPage] = useState(1);
 
     const fetchDeepBlock = async () => {
         if (!blockId) {
@@ -198,12 +201,21 @@ export const BlockDetail: React.FC = () => {
                     {/* Visual Atoms Section */}
                     {visuals.length > 0 && (
                         <section className="bg-white dark:bg-[#1c1f27] rounded-xl border border-slate-200 dark:border-slate-800 p-6">
-                            <h2 className="text-sm font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2 mb-6">
-                                <span className="material-symbols-outlined text-lg">image</span>
-                                Visual Atoms ({visuals.length})
-                            </h2>
-                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                                {visuals.map((vis, idx) => {
+                            <div className="flex items-center justify-between mb-6">
+                                <h2 className="text-sm font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
+                                    <span className="material-symbols-outlined text-lg">image</span>
+                                    Visual Atoms ({visuals.length})
+                                </h2>
+                                {visuals.length > ATOMS_PER_PAGE && (
+                                    <div className="text-xs font-medium text-slate-500">
+                                        Page {currentAtomPage} of {Math.ceil(visuals.length / ATOMS_PER_PAGE)}
+                                    </div>
+                                )}
+                            </div>
+                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                                {visuals
+                                    .slice((currentAtomPage - 1) * ATOMS_PER_PAGE, currentAtomPage * ATOMS_PER_PAGE)
+                                    .map((vis, idx) => {
                                   const feedback = atomFeedback.get(vis.id);
                                   return (
                                     <div key={idx} className="border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden hover:border-primary/50 transition-colors">
@@ -278,6 +290,27 @@ export const BlockDetail: React.FC = () => {
                                   );
                                 })}
                             </div>
+                            {/* Pagination Controls */}
+                            {visuals.length > ATOMS_PER_PAGE && (
+                                <div className="mt-6 flex items-center justify-center gap-4 pt-6 border-t border-slate-200 dark:border-slate-800">
+                                    <button
+                                        onClick={() => setCurrentAtomPage(prev => Math.max(prev - 1, 1))}
+                                        disabled={currentAtomPage === 1}
+                                        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors"
+                                    >
+                                        <span className="material-symbols-outlined">chevron_left</span>
+                                        Previous
+                                    </button>
+                                    <button
+                                        onClick={() => setCurrentAtomPage(prev => Math.min(prev + 1, Math.ceil(visuals.length / ATOMS_PER_PAGE)))}
+                                        disabled={currentAtomPage >= Math.ceil(visuals.length / ATOMS_PER_PAGE)}
+                                        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors"
+                                    >
+                                        Next
+                                        <span className="material-symbols-outlined">chevron_right</span>
+                                    </button>
+                                </div>
+                            )}
                         </section>
                     )}
 
@@ -458,123 +491,6 @@ export const BlockDetail: React.FC = () => {
             )}
             </div>
         </ErrorBoundary>
-    );
-};
-                    {genResult && <div className={`text-xs font-bold ${genResult.status === 'success' ? 'text-green-500' : 'text-red-500'}`}>{genResult.message}</div>}
-
-                    <button
-                        onClick={() => handleRegenerate()}
-                        disabled={!!generating}
-                        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800 text-white text-sm font-bold hover:bg-slate-700 transition-all disabled:opacity-50"
-                    >
-                        <span className="material-symbols-outlined text-sm">refresh</span>
-                        <span>Regen All</span>
-                    </button>
-
-                    <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-all">
-                        <span className="material-symbols-outlined text-sm">check_circle</span>
-                        <span>Submit Final Review</span>
-                    </button>
-                </div>
-            </div>
-
-            {/* Main Content Grid */}
-            <main className="flex-1 flex overflow-hidden p-6 gap-6">
-
-                {/* Section 1: Media Preview Area */}
-                <div className="flex-1 flex flex-col gap-4">
-                    <div className="bg-white dark:bg-[#1c1f27] rounded-xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col h-full overflow-hidden">
-                        <div className="flex items-center justify-between mb-4">
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
-                                <span className="material-symbols-outlined text-lg">image</span>
-                                Visual Output
-                            </h3>
-                            {/* Simple single view for MVP - could be carousel */}
-                            <div className="text-xs text-slate-500">Showing First Atom for Demo</div>
-                        </div>
-
-                        {/* THE IMAGE - Just showing first one for simplicity or we map them? Let's map the first one */}
-                        {visuals.length > 0 && visuals.map((vis, idx) => (
-                            <div key={idx} className="mb-8 p-4 border border-slate-700 rounded-lg relative">
-                                <div className="flex justify-between items-center mb-2">
-                                    <span className="text-sm font-bold text-slate-300">Slide {vis.id}</span>
-                                    <button
-                                        onClick={() => handleRegenerate(vis)}
-                                        disabled={!!generating}
-                                        className="text-xs bg-slate-700 hover:bg-slate-600 px-2 py-1 rounded text-white flex items-center gap-1"
-                                    >
-                                        <span className="material-symbols-outlined text-[10px]">{generating?.includes(vis.id) ? 'sync' : 'refresh'}</span>
-                                        Regen Slide
-                                    </button>
-                                </div>
-                                <div className="relative flex-1 bg-black rounded-lg overflow-hidden group flex items-center justify-center min-h-[300px]">
-                                    <img
-                                        src={`http://localhost:5173${vis.url}?t=${Date.now()}`} // Anti-cache hack
-                                        className="max-h-full max-w-full object-contain"
-                                        alt="Visual Asset"
-                                        onError={(e) => {
-                                            (e.target as HTMLImageElement).src = 'https://placeholder.pics/svg/800x600/333333/AAAAAA/Image%20Not%20Found';
-                                        }}
-                                    />
-                                </div>
-                                <div className="mt-2 p-2 bg-slate-900 rounded text-xs font-mono text-slate-400">
-                                    {vis.metadata?.prompt || "No prompt data"}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Section 2: Script Panel */}
-                <div className="w-1/4 flex flex-col gap-4">
-                    <div className="bg-white dark:bg-[#1c1f27] rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col h-full overflow-hidden">
-                        <div className="p-6 border-b border-slate-200 dark:border-slate-800 shrink-0">
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
-                                <span className="material-symbols-outlined text-lg">description</span>
-                                ScriptAtom Data
-                            </h3>
-                        </div>
-                        <div className="flex-1 overflow-y-auto p-6 custom-scrollbar flex flex-col gap-8">
-                            {scripts.map((script: any, idx) => (
-                                <div key={idx} className="space-y-6">
-                                    <section>
-                                        <h4 className="text-xs font-bold text-primary mb-2 uppercase">Scenario</h4>
-                                        <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">{script.content.SCENARIO}</p>
-                                    </section>
-                                    <section>
-                                        <h4 className="text-xs font-bold text-primary mb-2 uppercase">Connection</h4>
-                                        <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">{script.content.COSMETOLOGY_CONNECTION}</p>
-                                    </section>
-                                    <section className="p-4 bg-slate-50 dark:bg-[#111318] rounded-lg border-l-4 border-red-500">
-                                        <h4 className="text-xs font-bold text-red-500 mb-2 uppercase flex items-center gap-1">
-                                            <span className="material-symbols-outlined text-sm">gavel</span> Law
-                                        </h4>
-                                        <p className="text-sm font-medium italic text-slate-700 dark:text-slate-200">{script.content.THE_LAW}</p>
-                                    </section>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-
-                {/* Section 3: Feedback Panel (Placeholder/Existing) */}
-                <div className="w-1/4 flex flex-col gap-4">
-                    {/* Keeping existing layout for Feedback... */}
-                    <div className="bg-white dark:bg-[#1c1f27] rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col h-full overflow-hidden">
-                        <div className="p-6 border-b border-slate-200 dark:border-slate-800 shrink-0">
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
-                                <span className="material-symbols-outlined text-lg">fact_check</span>
-                                QC Feedback
-                            </h3>
-                        </div>
-                        <div className="p-6 text-sm text-slate-500">
-                            Feedback tools are active.
-                        </div>
-                    </div>
-                </div>
-
-            </main>
-        </div>
     );
 };
 
