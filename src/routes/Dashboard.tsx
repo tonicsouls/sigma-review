@@ -1,54 +1,112 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useReviewStore } from '../store/useReviewStore';
 import { loadHourBlocks } from '../utils/dataLoader';
-import type { Block } from '../types';
 
-function Dashboard() {
-    const navigate = useNavigate();
-    const { corrections } = useReviewStore();
-    const [stats, setStats] = useState({
-        totalBlocks: 0,
-        reviewedBlocks: 0,
-        totalNotes: 0,
-        pendingRegen: 0
-    });
+export const BlockGrid: React.FC = () => {
+    const { hourId = '1' } = useParams();
+    const { blocks, setBlocks, preferences } = useReviewStore();
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        async function loadStats() {
-            // Currently scoping to Hour 1 for the proposal phase
-            const blocks = await loadHourBlocks('1');
-
-            // Calculate unique blocks that have corrections
-            const blocksWithCorrections = new Set(corrections.map(c => c.blockId));
-
-            setStats({
-                totalBlocks: blocks.length,
-                reviewedBlocks: blocksWithCorrections.size,
-                totalNotes: corrections.length,
-                pendingRegen: 0 // Placeholder for Phase 4
-            });
+        const fetchBlocks = async () => {
+            setLoading(true);
+            const loadedBlocks = await loadHourBlocks(`h${hourId}`);
+            setBlocks(loadedBlocks);
             setLoading(false);
-        }
-        loadStats();
-    }, [corrections]);
+        };
+        fetchBlocks();
+    }, [hourId, preferences.backendUrl]);
 
-    const completionRate = stats.totalBlocks > 0
-        ? Math.round((stats.reviewedBlocks / stats.totalBlocks) * 100)
-        : 0;
+    if (loading) {
+        return <div className="p-8 text-center text-slate-500">Loading Content Atoms from Stitcher...</div>;
+    }
 
     return (
-                    <h3 className="text-gray-500 text-sm font-medium">Pending Regen</h3>
-                    <p className="text-3xl font-bold mt-2 text-yellow-600">0</p>
-                </div >
-            </div >
+        <div className="flex-1 flex flex-col h-full bg-background-light dark:bg-background-dark overflow-hidden">
+            {/* Header */}
+            <header className="h-16 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111318] flex items-center justify-between px-8 shrink-0">
+                <div className="flex items-center gap-8">
+                    <h2 className="text-slate-900 dark:text-white text-lg font-bold tracking-tight">Review Studio</h2>
+                    <div className="hidden md:flex items-center gap-4">
+                        <label className="relative flex items-center">
+                            <span className="material-symbols-outlined absolute left-3 text-slate-400 text-lg">search</span>
+                            <input className="h-9 w-64 pl-10 pr-4 bg-slate-100 dark:bg-[#282e39] border-none rounded-lg text-sm focus:ring-1 focus:ring-primary dark:text-white placeholder:text-slate-500" placeholder="Search lessons..." type="text" />
+                        </label>
+                    </div>
+                </div>
+                <div className="flex items-center gap-4">
+                    {/* Export Button */}
+                    <button className="flex items-center gap-2 h-9 px-4 bg-primary text-white text-sm font-bold rounded-lg hover:bg-blue-700 transition-colors">
+                        <span className="material-symbols-outlined text-lg">download</span>
+                        Export Corrections
+                    </button>
+                </div>
+            </header>
 
-        <div className="p-12 text-center border-2 border-dashed border-gray-300 rounded-xl">
-            <p className="text-gray-500">Detailed statistics and charts coming soon...</p>
+            {/* Breadcrumbs & Toolbar */}
+            <div className="px-8 py-3 bg-white/50 dark:bg-[#111318]/50 flex items-center justify-between border-b border-slate-200 dark:border-slate-800 shrink-0">
+                <div className="flex items-center gap-2 text-sm">
+                    <span className="text-slate-500">Hours</span>
+                    <span className="text-slate-300 dark:text-slate-700">/</span>
+                    <span className="text-slate-900 dark:text-white font-medium">Hour {hourId.padStart(2, '0')}</span>
+                </div>
+                {/* View toggles could go here */}
+            </div>
+
+            {/* Content Grid */}
+            <div className="flex-1 overflow-y-auto p-8 custom-scrollbar">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {blocks.map(block => (
+                        <Link to={`/hour/${hourId}/block/${block.blockId}`} key={block.blockId} className="group scorp-card flex flex-col">
+                            <div className="aspect-video w-full bg-slate-100 dark:bg-[#282e39] relative">
+                                {/* Thumbnail (Gradient for now) */}
+                                <div className="w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center">
+                                    <span className="material-symbols-outlined text-4xl text-slate-400 dark:text-slate-500">
+                                        {block.atomType === 'visual' ? 'image' :
+                                            block.atomType === 'script' ? 'description' :
+                                                block.atomType === 'audio' ? 'headphones' : 'grid_view'}
+                                    </span>
+                                </div>
+                                <div className="absolute top-3 left-3 px-2 py-1 bg-slate-400 dark:bg-slate-600 text-white text-[10px] font-bold uppercase rounded shadow-lg">
+                                    {block.status || 'Pending'}
+                                </div>
+                                {/* Hover Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 gap-2">
+                                    <span className="bg-primary p-1.5 rounded-lg text-white material-symbols-outlined text-lg">edit</span>
+                                </div>
+                            </div>
+                            <div className="p-4 flex flex-col gap-1">
+                                <h3 className="text-sm font-bold text-slate-900 dark:text-white line-clamp-1" title={block.title}>
+                                    {block.title}
+                                </h3>
+                                <p className="text-xs text-slate-500">
+                                    {block.durationMinutes} min • {block.blockId}
+                                </p>
+                            </div>
+                        </Link>
+                    ))}
+
+                    {/* Placeholder for 'New Block' */}
+                    <div className="group border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:bg-slate-50 dark:hover:bg-[#1c1f27]/50 transition-all duration-200 flex items-center justify-center h-[210px] cursor-pointer opacity-60">
+                        <div className="flex flex-col items-center gap-2 text-slate-400">
+                            <span className="material-symbols-outlined text-3xl">add_circle</span>
+                            <p className="text-xs font-bold uppercase tracking-widest">New Block</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {/* Footer Status */}
+            <footer className="h-8 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111318] flex items-center justify-between px-6 shrink-0 text-[10px] text-slate-400 dark:text-slate-600 font-medium">
+                <div className="flex items-center gap-4">
+                    <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Stitcher Connected</span>
+                    <span className="flex items-center gap-1"><span className="material-symbols-outlined text-xs">dns</span> {preferences.backendUrl}</span>
+                </div>
+                <div className="flex items-center gap-4">
+                    <span>SCORPION_STUDIO_V2</span>
+                </div>
+            </footer>
         </div>
-        </div >
     );
-}
-
-export default Dashboard;
+};

@@ -1,3 +1,20 @@
+@import "tailwindcss";
+@source "../index.html";
+@source "./src/**/*.{js,ts,jsx,tsx}";
+
+@theme {
+  --color-primary: #135bec;
+  --color-background-light: #f6f6f8;
+  --color-background-dark: #101622;
+  --color-surface-dark: #1a2233;
+  --color-border-dark: #282e39;
+
+  --font-sans: Inter, sans-serif;
+  --font-display: Inter, sans-serif;
+}
+
+@custom-variant dark (&.dark);
+
 /* CSS for the Sigme Review Studio */
 
 /* Base Styles */
@@ -181,53 +198,48 @@ nav {
   background-color: #f3f4f6;
 }
 
-.compact-image-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.65rem;
-  color: #6b7280;
+/* Custom Scrollbar from Design */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
 }
 
-.compact-image-name {
-  white-space: nowrap;
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #e2e8f0;
+  /* bg-slate-200 */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:is(.dark *) {
+  background-color: #282e39;
+  /* dark:bg-[#282e39] */
+}
+
+/* Scorpion UI Utilities */
+.scorp-card {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  /* border-slate-200 */
+  border-radius: 0.75rem;
+  /* rounded-xl */
   overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 70%;
+  transition: all 0.2s;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  /* shadow-sm */
 }
 
-.image-placeholder {
-  aspect-ratio: 16/9;
-  background: #e5e7eb;
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #9ca3af;
-  font-size: 0.875rem;
+.scorp-card:is(.dark *) {
+  background-color: #1c1f27;
+  border-color: #1e293b;
+  /* dark:border-slate-800 */
 }
 
-/* Forms */
-textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
-  font-family: inherit;
-  resize: vertical;
-}
-
-textarea:focus {
-  outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-.note-item {
-  padding: 0.75rem;
-  background: #f9fafb;
-  border-radius: 0.5rem;
-  margin-bottom: 0.5rem;
+.scorp-card:hover {
+  border-color: rgba(19, 91, 236, 0.5);
+  /* hover:border-primary/50 */
 }
 
 .note-text {
@@ -389,6 +401,7 @@ textarea:focus {
   width: 1.25rem;
   height: 1.25rem;
   cursor: pointer;
+  font-weight: 500;
 }
 
 .prompt-text {

@@ -1,135 +1,111 @@
 import type { Block } from '../types';
-
-// Use Vite's /@fs/ prefix to access absolute paths outside root
-const FS_PREFIX = '/sigma-review/@fs/';
-const ROOT_PATH = 'C:/Users/Darry/OneDrive/Brain Candy portal OMBU/ROOT_BODY_X/Organs_apps/VSCodeWorkingDocs/COS-CE-2026_0106/externaldata/proposal';
-const SIGMA_V3_PATH = `${FS_PREFIX}${ROOT_PATH}/SIGMA/v3`;
-const DRAFT_CONTENT_PATH = `${FS_PREFIX}${ROOT_PATH}/DRAFT CONTENT/h1/Hour 1 - Sanitation`;
+import { Stitcher } from '../services/stitcher';
+import { useReviewStore } from '../store/useReviewStore';
 
 /**
- * Load all blocks for Hour 1 from SIGMA v3
+ * Simple in‑memory cache for the manifest list.
+ * It lives for the duration of the page session.
+ */
+let manifestCache: string[] | null = null;
+let cachedHourId: string | null = null;
+
+/**
+ * Load all blocks for a given hour.
+ * - Reads the manifest (cached per session).
+ * - Filters for the requested hour.
+ * - Fetches each block via Stitcher and builds a `Block` object.
+ *   The `images` array contains full URLs for visual atoms.
  */
 export async function loadHourBlocks(hourId: string): Promise<Block[]> {
+    const { preferences } = useReviewStore.getState();
+    const stitcher = Stitcher.getInstance();
+
+    // 1️⃣ Fetch manifest (cached)
+    if (!manifestCache || cachedHourId !== hourId) {
+        const rawPaths = await stitcher.fetchManifest(preferences.backendUrl);
+        manifestCache = rawPaths;
+        cachedHourId = hourId;
+    }
+
+    // 2️⃣ Filter for the requested hour (handles "1", "h1", "Hour 1")
+    const hourNum = hourId.replace(/[^0-9]/g, '');
+    const hourPaths = (manifestCache || []).filter((path) => {
+        const lower = path.toLowerCase();
+        return (
+            lower.includes(`hour ${hourNum}`) ||
+            lower.includes(`hour_${hourNum}`) ||
+            lower.includes(`h${hourNum}`) ||
+            lower.includes(`hour ${hourNum}`)
+        );
+    });
+
     const blocks: Block[] = [];
 
-    // For now, manually load blocks 001-022
-    for (let i = 1; i <= 22; i++) {
-        const blockId = `block_${String(i).padStart(3, '0')}`;
-        const block = await loadBlock(blockId, hourId);
-        if (block) {
-            blocks.push(block);
+    // 3️⃣ Fetch each block and construct the Block shape expected by the UI
+    for (const path of hourPaths) {
+        const scorpionBlock = await stitcher.fetchBlock(preferences.backendUrl, path);
+        if (!scorpionBlock) continue;
+
+        // Build image URLs from visual atoms (asset_id field)
+        const images: string[] = [];
+        if (Array.isArray(scorpionBlock.atoms)) {
+            for (const atom of scorpionBlock.atoms) {
+                if (atom.atom_type === 'visual' && atom.asset_id) {
+                    // asset URL prefix points to the OMEGA folder for this block
+                    const directoryPath = path.substring(0, path.lastIndexOf('/'));
+                    const assetUrlPrefix = `${preferences.backendUrl.replace(/\/$/, '')}/api/scorpion/${directoryPath}`;
+                    images.push(`${assetUrlPrefix}/${atom.asset_id}`);
+                }
+            }
         }
+
+        const reviewBlock: Block = {
+            blockId: scorpionBlock.block_id,
+            hourId,
+            title: scorpionBlock.block_title || `Block ${scorpionBlock.block_id}`,
+            atomType: scorpionBlock.atom_type || 'visual',
+            durationMinutes: scorpionBlock.duration_minutes || 0,
+            images,
+            audio: scorpionBlock.audio || undefined,
+            imagePrompts: scorpionBlock.image_prompts || undefined,
+            audioScript: scorpionBlock.script || undefined,
+            quiz: scorpionBlock.quiz || undefined,
+            status: scorpionBlock.status || 'pending',
+        };
+        blocks.push(reviewBlock);
     }
 
     return blocks;
 }
 
 /**
- * Load a single block's data
+ * Load a single block – used by the BlockDetail view.
+ * This implementation still uses the older DRAFT_CONTENT path for fallback.
  */
 export async function loadBlock(blockId: string, hourId: string): Promise<Block | null> {
     try {
-        // Load manifest from DRAFT CONTENT
-        // Note: URL encoding might be needed for spaces in path but browser fetch usually handles it or we use encodeURI if needed
-        // Safest to just use the path string if it works, or encodeURI specific parts.
-        // The path contains spaces "DRAFT CONTENT", "Hour 1 - Sanitation".
-        const manifestPath = `${DRAFT_CONTENT_PATH}/${blockId}/manifest.json`;
+        const manifestPath = `${process.env.VITE_DRAFT_CONTENT_PATH}/${blockId}/manifest.json`;
         const manifestResponse = await fetch(manifestPath);
-
-        if (!manifestResponse.ok) {
-            // Silent fail or warn
-            // console.warn(`Manifest not found for ${blockId}`);
-            return null;
-        }
-
+        if (!manifestResponse.ok) return null;
         const manifest = await manifestResponse.json();
-
-        // Load images from SIGMA v3
-        const images: string[] = [];
-        const sigmaBlockPath = `${SIGMA_V3_PATH}/${blockId}`;
-
-        // Try to load slide images (a-g)
-        for (const letter of ['a', 'b', 'c', 'd', 'e', 'f', 'g']) {
-            const imagePath = `${sigmaBlockPath}/slide_${letter}.png`;
-            try {
-                const response = await fetch(imagePath, { method: 'HEAD' });
-                if (response.ok) {
-                    images.push(imagePath);
-                }
-            } catch {
-                // Image doesn't exist, skip
-            }
-        }
-
-        // Load audio
-        const audioPath = `${sigmaBlockPath}/audio.wav`;
-        let audio: string | undefined;
-        try {
-            const response = await fetch(audioPath, { method: 'HEAD' });
-            if (response.ok) {
-                audio = audioPath;
-            }
-        } catch {
-            audio = undefined;
-        }
-
-        // Load prompts
-        let imagePrompts: string | undefined;
-        let audioScript: string | undefined;
-
-        try {
-            const promptsResponse = await fetch(`${DRAFT_CONTENT_PATH}/${blockId}/image_prompts.txt`);
-            if (promptsResponse.ok) {
-                imagePrompts = await promptsResponse.text();
-            }
-        } catch { }
-
-        try {
-            const scriptResponse = await fetch(`${DRAFT_CONTENT_PATH}/${blockId}/script.txt`);
-            if (scriptResponse.ok) {
-                audioScript = await scriptResponse.text();
-            }
-        } catch { }
-
-        // Load Quiz Data
-        let quiz: any = undefined;
-        try {
-            // Try standard quiz.json first
-            let quizResponse = await fetch(`${DRAFT_CONTENT_PATH}/${blockId}/quiz.json`);
-            if (!quizResponse.ok) {
-                // Fallback to flashcard.json if strictly named that way in some old blocks
-                quizResponse = await fetch(`${DRAFT_CONTENT_PATH}/${blockId}/flashcard.json`);
-            }
-
-            if (quizResponse.ok) {
-                quiz = await quizResponse.json();
-            }
-        } catch (e) {
-            console.warn(`Failed to parse quiz for ${blockId}`, e);
-        }
-
+        // For brevity we return a minimal Block; the UI will request assets via the API when needed.
         return {
             blockId,
             hourId,
             title: manifest.title || `Block ${blockId}`,
-            atomType: manifest.atom_type || 'Video',
-            durationMinutes: manifest.duration_minutes || 2,
-            images,
-            audio,
-            imagePrompts,
-            audioScript,
-            quiz, // Include quiz data
+            atomType: manifest.atom_type || 'visual',
+            durationMinutes: manifest.duration_minutes || 0,
+            images: [],
             status: 'pending',
-        };
-    } catch (error) {
-        console.error(`Error loading block ${blockId}:`, error);
+        } as any;
+    } catch (e) {
+        console.error(`Error loading block ${blockId}:`, e);
         return null;
     }
 }
 
 /**
- * Get public URL for file path
- * Not strictly needed if we just pass the fetchable URL around as the 'path'
+ * Helper to get a public URL – currently a passthrough.
  */
 export function getPublicUrl(path: string): string {
     return path;

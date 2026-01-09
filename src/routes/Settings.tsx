@@ -40,6 +40,28 @@ function Settings() {
                             <span className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${preferences.darkMode ? 'translate-x-5' : 'translate-x-0'}`}></span>
                         </button>
                     </div>
+
+                    <div className="pt-6 border-t border-gray-100">
+                        <h3 className="text-lg font-medium text-gray-900 mb-4">Remote Generation</h3>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">Backend Server URL</label>
+                            <div className="mt-1 flex rounded-md shadow-sm">
+                                <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                    URL
+                                </span>
+                                <input
+                                    type="text"
+                                    value={preferences.backendUrl}
+                                    onChange={(e) => setPreference('backendUrl', e.target.value)}
+                                    placeholder="http://localhost:5000"
+                                    className="flex-1 min-w-0 block w-full px-3 py-2 rounded-none rounded-r-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                />
+                            </div>
+                            <p className="mt-2 text-sm text-gray-500">
+                                Set this to your PC's IP address (e.g., <code>http://192.168.1.5:5000</code>) to control generation from your mobile device.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="p-4 bg-gray-50 border-t border-gray-100 text-right">

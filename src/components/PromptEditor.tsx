@@ -22,15 +22,24 @@ export function PromptEditor({ title = "Image Prompts", initialPrompt, onSave, o
         setIsDirty(true);
     };
 
-    const handleSave = () => {
-        onSave(prompt);
-        setIsDirty(false);
+    const handleSave = async () => {
+        try {
+            await onSave(prompt);
+            setIsDirty(false);
+        } catch (e) {
+            console.error("Save failed", e);
+            alert("Failed to save prompt");
+        }
     };
 
-    const handleRegen = () => {
-        onRegen(prompt);
-        // Regen implies save
-        setIsDirty(false);
+    const handleRegen = async () => {
+        try {
+            await onRegen(prompt);
+            setIsDirty(false);
+        } catch (e) {
+            console.error("Regen failed", e);
+            // Error handled by parent or alert
+        }
     };
 
     return (

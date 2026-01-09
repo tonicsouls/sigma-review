@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/sigma-review/',
+  base: './', // Relative base for GitHub Pages compatibility
   server: {
     fs: {
       // Allow serving files from SIGMA v3 and DRAFT CONTENT

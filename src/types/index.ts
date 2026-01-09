@@ -1,6 +1,4 @@
-completedCount: number;
-}
-
+// Basic Atom Wrappers
 export interface QuestionOption {
     id: string;
     text: string;
@@ -19,27 +17,34 @@ export interface QuizData {
     questions: Question[];
 }
 
+// Block Definition (Matches Stitcher output)
 export interface Block {
     blockId: string;
     hourId: string;
     title: string;
-    atomType: 'Video' | 'FlashCard' | 'ImageSelect';
+    atomType: 'Video' | 'FlashCard' | 'ImageSelect' | 'Mixed' | 'script' | 'visual' | 'audio';
     durationMinutes: number;
     images: string[];
     audio?: string;
     imagePrompts?: string;
     audioScript?: string;
+    citation?: string;
     quiz?: QuizData;
     status?: 'pending' | 'reviewed' | 'has_notes';
+    rawAtoms?: any[]; // Full fidelity from Stitcher
 }
-hourId: string;
-assetType: 'image' | 'audio' | 'prompt';
-assetName: string;
-issue: string;
-priority ?: 'low' | 'medium' | 'high';
-status: 'pending' | 'fixed';
-createdAt: string;
-createdBy ?: string;
+
+export interface Correction {
+    id: string;
+    blockId: string;
+    hourId: string;
+    assetType: 'image' | 'audio' | 'prompt';
+    assetName: string;
+    issue: string;
+    priority?: 'low' | 'medium' | 'high';
+    status: 'pending' | 'fixed';
+    createdAt: string;
+    createdBy?: string;
 }
 
 export interface Hour {
@@ -48,3 +53,4 @@ export interface Hour {
     blockCount: number;
     completedCount: number;
 }
+
