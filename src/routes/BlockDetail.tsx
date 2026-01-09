@@ -224,7 +224,7 @@ export const BlockDetail: React.FC = () => {
                                 {visuals
                                     .slice((currentAtomPage - 1) * ATOMS_PER_PAGE, currentAtomPage * ATOMS_PER_PAGE)
                                     .map((vis, idx) => {
-                                  const feedback = atomFeedback.get(vis.id);
+                                  const feedback = atomFeedback.get(vis.atom_id);
                                   return (
                                     <div key={idx} className="border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden hover:border-primary/50 transition-colors">
                                         {/* Thumbnail */}
@@ -236,12 +236,12 @@ export const BlockDetail: React.FC = () => {
                                           }}
                                         >
                                             <img
-                                                src={`http://localhost:5173${vis.url}?t=${Date.now()}`}
+                                                src={`/assets/images/${vis.asset_id}?t=${Date.now()}`}
                                                 className="max-h-full max-w-full object-contain"
-                                                alt={`Slide ${vis.id}`}
+                                                alt={`Slide ${vis.atom_id}`}
                                                 onError={(e) => {
-                                                    const imgPath = `http://localhost:5173${vis.url}`;
-                                                    assetLogger.logMissingAsset(vis.id, imgPath, 'image');
+                                                    const imgPath = `/assets/images/${vis.asset_id}`;
+                                                    assetLogger.logMissingAsset(vis.atom_id, imgPath, 'image');
                                                     (e.target as HTMLImageElement).src = 'https://placeholder.pics/svg/600x400/333333/AAAAAA/Missing';
                                                 }}
                                             />
@@ -253,7 +253,7 @@ export const BlockDetail: React.FC = () => {
                                         {/* Meta */}
                                         <div className="p-4 border-t border-slate-200 dark:border-slate-800 space-y-3">
                                             <div className="flex items-center justify-between">
-                                                <span className="text-xs font-bold text-slate-600 dark:text-slate-400">Slide {vis.id.toUpperCase()}</span>
+                                                <span className="text-xs font-bold text-slate-600 dark:text-slate-400">Slide {vis.atom_id?.toUpperCase() || 'N/A'}</span>
                                                 {feedback && (
                                                   <span className={`text-[10px] px-2 py-1 rounded font-bold ${
                                                     feedback.status === 'keep' ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300' :
@@ -269,7 +269,7 @@ export const BlockDetail: React.FC = () => {
                                             {/* Quick Actions */}
                                             <div className="flex gap-2">
                                                 <button
-                                                  onClick={() => handleAtomAction(vis.id, 'keep')}
+                                                  onClick={() => handleAtomAction(vis.atom_id, 'keep')}
                                                   className="flex-1 py-1.5 px-2 text-[10px] font-bold rounded bg-emerald-100 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-emerald-950/50 transition-colors"
                                                 >
                                                   ✅ Keep
@@ -282,7 +282,7 @@ export const BlockDetail: React.FC = () => {
                                                   🔄 Regen
                                                 </button>
                                                 <button
-                                                  onClick={() => handleAtomAction(vis.id, 'delete')}
+                                                  onClick={() => handleAtomAction(vis.atom_id, 'delete')}
                                                   className="flex-1 py-1.5 px-2 text-[10px] font-bold rounded bg-red-100 dark:bg-red-950/30 text-red-700 dark:text-red-300 hover:bg-red-200 dark:hover:bg-red-950/50 transition-colors"
                                                 >
                                                   🔴 Delete
