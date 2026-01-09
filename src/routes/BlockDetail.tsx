@@ -8,6 +8,7 @@ import { AtomEditorModal } from '../components/AtomEditorModal';
 import { AudioPlayer } from '../components/AudioPlayer';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 import { assetLogger } from '../utils/assetLogger';
+import { getMockBlock } from '../utils/mockData';
 
 const ATOMS_PER_PAGE = 10;
 
@@ -42,18 +43,25 @@ export const BlockDetail: React.FC = () => {
         try {
             const stitcher = Stitcher.getInstance();
             const manifest = await stitcher.fetchManifest(preferences.backendUrl);
-            if (!manifest || manifest.length === 0) {
-                throw new Error('Empty manifest received');
+            
+            let deepBlock: ScorpionBlock | null = null;
+            
+            // Try API first, fall back to mock data
+            if (manifest && manifest.length > 0) {
+                const blockPath = manifest.find(p => p.includes(blockId));
+                if (blockPath) {
+                    deepBlock = await stitcher.fetchBlock(preferences.backendUrl, blockPath);
+                }
             }
             
-            const blockPath = manifest.find(p => p.includes(blockId));
-            if (!blockPath) {
-                throw new Error(`Block ${blockId} not found in manifest`);
-            }
-
-            const deepBlock = await stitcher.fetchBlock(preferences.backendUrl, blockPath);
+            // Fall back to mock data if API failed
             if (!deepBlock) {
-                throw new Error(`Failed to load block data`);
+                console.warn('API failed, loading mock data for block:', blockId);
+                deepBlock = getMockBlock(blockId);
+            }
+            
+            if (!deepBlock) {
+                throw new Error(`Block ${blockId} not found in manifest or mock data`);
             }
             setBlock(deepBlock);
         } catch (err) {
