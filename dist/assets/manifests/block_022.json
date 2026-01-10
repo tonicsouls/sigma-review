@@ -1,0 +1,81 @@
+{
+  "block_id": "022",
+  "block_title": "Block 022",
+  "lesson_title": "Lesson Demo",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.100",
+  "atoms": [
+    {
+      "atom_id": "vis-022-a",
+      "atom_type": "visual",
+      "asset_id": "block_022/slide_a.png",
+      "metadata": {
+        "prompt": "An engaging title card: \"Your Hands: First Line of Defense!\" with a dynamic image of clean, gloved hands.",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-022-b",
+      "atom_type": "visual",
+      "asset_id": "block_022/slide_b.png",
+      "metadata": {
+        "prompt": "A stylist vigorously washing their hands at a modern salon sink, with lots of soap bubbles. The water is running. The image is clean and active.",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-022-c",
+      "atom_type": "visual",
+      "asset_id": "block_022/slide_c.png",
+      "metadata": {
+        "prompt": "A clear graphic comparing soap and water vs. hand sanitizer. On one side: a sink icon with \"SOAP & WATER = Primary.\" On the other: a hand sanitizer bottle icon with \"HAND SANITIZER = Secondary / Supplement.\"",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-022-d",
+      "atom_type": "visual",
+      "asset_id": "block_022/slide_d.png",
+      "metadata": {
+        "prompt": "A shot of a stylist's hands covered in hair color or product. They are turning towards a sink with a determined expression. A red 'X' hovers over a hand sanitizer bottle.",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-022-e",
+      "atom_type": "visual",
+      "asset_id": "block_022/slide_e.png",
+      "metadata": {
+        "prompt": "A split-screen. On the left: Hands covered in visible dirt, with a red 'X' over a hand sanitizer bottle. On the right: Clean hands, with a green checkmark over a hand sanitizer bottle.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-022-f",
+      "atom_type": "visual",
+      "asset_id": "block_022/slide_f.png",
+      "metadata": {
+        "prompt": "A final shot of a stylist confidently greeting a client with clean, professional hands, symbolizing trust and safety.",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "script-022",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "N/A",
+        "COSMETOLOGY_CONNECTION": "N/A",
+        "THE_LAW": "N/A"
+      }
+    },
+    {
+      "atom_id": "aud-022",
+      "atom_type": "audio",
+      "asset_id": "block_022/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-022"
+      }
+    }
+  ]
+}

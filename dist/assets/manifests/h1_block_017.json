@@ -1,0 +1,84 @@
+{
+  "block_id": "017",
+  "block_title": "Spore Testing: How Do You Know It's Working?",
+  "lesson_title": "Hour 1 Lesson",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.102",
+  "atoms": [
+    {
+      "atom_id": "vis-017-a",
+      "atom_type": "visual",
+      "asset_id": "block_017/slide_a.png",
+      "metadata": {
+        "prompt": "An animation showing the inside of an autoclave, with tools and a tiny spore strip visible. A question mark appears over the spore strip, asking \"Is it working?\".",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-017-b",
+      "atom_type": "visual",
+      "asset_id": "block_017/slide_b.png",
+      "metadata": {
+        "prompt": "A close-up of a tiny, paper spore strip being carefully placed inside a sterilization pouch with some tools.",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-017-c",
+      "atom_type": "visual",
+      "asset_id": "block_017/slide_c.png",
+      "metadata": {
+        "prompt": "The spore strip, now processed through the sterilizer, is being carefully removed from its pouch by a gloved hand.",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-017-d",
+      "atom_type": "visual",
+      "asset_id": "block_017/slide_d.png",
+      "metadata": {
+        "prompt": "A split-screen. On one side, a technician in a lab is analyzing the spore strip, showing that nothing grew (green checkmark). On the other, a spore strip where spores *did* grow, with a red 'X'.",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-017-e",
+      "atom_type": "visual",
+      "asset_id": "block_017/slide_e.png",
+      "metadata": {
+        "prompt": "A shot of a salon's \"Sterilization Log\" being updated with a date and \"PASS\" entry, signed by the professional. The log looks clean and official.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-017-f",
+      "atom_type": "visual",
+      "asset_id": "block_017/slide_f.png",
+      "metadata": {
+        "prompt": "A final shot of a confident professional, giving a thumbs up. Behind them, the autoclave has a green \"PASS\" indicator light, symbolizing verified safety.",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "script-017",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "Your autoclave is running every day, but how do you know it's actually reaching the right temperature and pressure to sterilize? You can't just trust the lights on the machine. You have to prove it.",
+        "COSMETOLOGY_CONNECTION": "Verification is a critical professional step. Regularly testing your sterilizer with spore strips is your proof\u2014to yourself, to inspectors, and to your clients\u2014that your equipment is working perfectly and you are providing the highest level of care.",
+        "THE_LAW": "The law requires that autoclaves and dry heat sterilizers be tested for functionality on a regular basis. This is done using 'spore strips' which contain harmless but highly resistant bacterial spores. After a cycle, the strip is sent to a lab to verify that the spores were destroyed."
+      },
+      "metadata": {
+        "full_script": "(\"Okay, you've got your awesome autoclave, and it's flashing green lights like crazy.\"),(\"But how do you *really* know it's working?\"),(\"How can you be 100 percent sure it's killing those super-tough bacterial spores?\"),(\"Let's do a power-up on a critical step for sterilizer verification: Spore Testing.\")\n(\"This is where 'trust, but verify' comes into play.\"),(\"The state rules require that any professional using an autoclave or dry heat sterilizer *regularly test* its functionality.\"),(\"You can't just assume the machine is doing its job perfectly every cycle.\"),(\"This testing is done using something called a 'spore strip.'\"),(\"These are tiny paper strips that contain harmless, but incredibly resistant, bacterial spores.\"),(\"You put one through a full sterilization cycle, and then you send it to a special lab.\")\n(\"So what happens at the lab?\"),(\"They try to grow the spores from your strip.\"),(\"If nothing grows, it means your sterilizer successfully killed even the toughest spores, and it's working perfectly!\"),(\"If something *does* grow, it's a huge red flag.\"),(\"It means your sterilizer isn't reaching the correct temperature or pressure, and it's not sterilizing.\"),(\"This is a massive violation, as you could be putting clients at serious risk.\"),(\"Regularly performing and documenting these spore tests provides undeniable proof that your equipment is functioning as it should.\")\n(\"So, here's the pro tip: Spore testing isn't just a good idea, it's a legal requirement for proving your sterilizer is effective.\"),(\"It's your ultimate verification that you're providing the absolute highest level of safety.\")\n"
+      }
+    },
+    {
+      "atom_id": "aud-017",
+      "atom_type": "audio",
+      "asset_id": "block_017/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-017"
+      }
+    }
+  ]
+}

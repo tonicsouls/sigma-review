@@ -1,0 +1,84 @@
+{
+  "block_id": "002",
+  "block_title": "The Invisible Enemy (Pathogen Science)",
+  "lesson_title": "Hour 1 Lesson",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "Theory",
+  "atoms": [
+    {
+      "atom_id": "vis-002-a",
+      "atom_type": "visual",
+      "asset_id": "block_002/slide_a.png",
+      "metadata": {
+        "prompt": "Shot A",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-002-b",
+      "atom_type": "visual",
+      "asset_id": "block_002/slide_b.png",
+      "metadata": {
+        "prompt": "Shot B",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-002-c",
+      "atom_type": "visual",
+      "asset_id": "block_002/slide_c.png",
+      "metadata": {
+        "prompt": "Shot C",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-002-d",
+      "atom_type": "visual",
+      "asset_id": "block_002/slide_d.png",
+      "metadata": {
+        "prompt": "Shot D",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-002-e",
+      "atom_type": "visual",
+      "asset_id": "block_002/slide_e.png",
+      "metadata": {
+        "prompt": "Shot E",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-002-f",
+      "atom_type": "visual",
+      "asset_id": "block_002/slide_f.png",
+      "metadata": {
+        "prompt": "Shot F",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "script-002",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "We know we have to disinfect, but why? What are we actually fighting against? Let's put on our lab coats for a minute and meet the invisible enemies you conquer every day.",
+        "COSMETOLOGY_CONNECTION": "Understanding the 'why' behind the rules makes you a smarter and more effective professional. Knowing what bacteria, viruses, and fungi are helps you appreciate the power of your disinfectants and the importance of using them correctly.",
+        "THE_LAW": "The science behind sanitation is simple: pathogens are everywhere. Bacteria are single-celled organisms, viruses are even smaller and need a host to survive, and fungi include things like mold and mildew. Your EPA-registered disinfectant is formulated to destroy all three."
+      },
+      "metadata": {
+        "full_script": "(\"Alright pros, we know we have to disinfect, but what exactly are we fighting?\"),(\"To truly be masters of sanitation, we need to know our enemy.\"),(\"So for the next two minutes, let's take a quick, fascinating dive into the microscopic world of pathogens.\")\n(\"Think of your disinfectant as a superhero team, and it's fighting three main types of villains.\"),(\"First, you have Bacteria.\"),(\"These are tiny, single-celled organisms that live everywhere.\"),(\"Some are harmless, but others can cause infections.\"),(\"Next up, you have Viruses.\"),(\"These guys are even smaller and are like tiny hijackers; they need to get inside a living cell to reproduce.\"),(\"And finally, you have Fungi.\"),(\"This group includes things we're all familiar with, like mold, mildew, and yeasts.\"),(\"Unchecked, these can cause skin and nail issues.\")\n(\"Your EPA-registered disinfectant is specifically formulated and tested to be a triple threat.\"),(\"The term 'bactericidal' on the label means it kills bacteria.\"),(\"Virucidal' means it kills viruses.\"),(\"And 'fungicidal' means it kills fungi.\"),(\"If your disinfectant doesn't say all three, you're going into battle with an incomplete team.\"),(\"You're leaving your clients, and yourself, vulnerable to one of these invisible enemies.\")\n(\"So remember what you're up against: bacteria, viruses, and fungi.\"),(\"They're the invisible enemies we fight every day.\"),(\"Understanding this 'why' is what makes you not just a stylist, but a guardian of your clients' health and safety.\")\n"
+      }
+    },
+    {
+      "atom_id": "aud-002",
+      "atom_type": "audio",
+      "asset_id": "block_002/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-002"
+      }
+    }
+  ]
+}

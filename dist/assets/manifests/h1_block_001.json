@@ -1,0 +1,93 @@
+{
+  "block_id": "001",
+  "block_title": "The Two Worlds (Clean vs Disinfect)",
+  "lesson_title": "Hour 1 Lesson",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.100(2-3)",
+  "atoms": [
+    {
+      "atom_id": "vis-001-a",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_a.png",
+      "metadata": {
+        "prompt": "Shot A",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-001-b",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_b.png",
+      "metadata": {
+        "prompt": "Shot B",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-001-c",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_c.png",
+      "metadata": {
+        "prompt": "Shot C",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-001-d",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_d.png",
+      "metadata": {
+        "prompt": "Shot D",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-001-e",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_e.png",
+      "metadata": {
+        "prompt": "Shot E",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-001-f",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_f.png",
+      "metadata": {
+        "prompt": "Shot F",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "vis-001-g",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_g.png",
+      "metadata": {
+        "prompt": "Shot G",
+        "description": "Slide G"
+      }
+    },
+    {
+      "atom_id": "script-001",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "You've just finished with a client. You wipe down your station and get ready for the next one. But did you clean, or did you disinfect? They sound similar, but in our world, they are two completely different things.",
+        "COSMETOLOGY_CONNECTION": "Understanding the massive difference between 'clean' and 'disinfected' is the single most important concept in client safety. Nailing this difference protects your clients, your license, and your reputation as a true professional.",
+        "THE_LAW": "The law defines 'Cleansing' as removing visible debris, while 'Disinfecting' is using an EPA-registered chemical to destroy pathogens. One is about what you can see, the other is about fighting the invisible enemy. Confusing the two is a critical error."
+      },
+      "metadata": {
+        "full_script": "(\"Welcome to the foundation of your profession.\"),(\"As a licensed cosmetologist, you live in two worlds.\"),(\"The world you can see, and the world you can't.\"),(\"The difference between them is the difference between a pretty station and a truly safe one.\"),(\"Let's dive into the two most important words in our rulebook: Clean and Disinfect.\")\n(\"Let's get this crystal clear, because everything else we do builds on this.\"),(\"The state of Texas defines 'Cleansing' as washing an item to remove all visible debris and residue.\"),(\"It's about what you can see.\"),(\"If you can see it, you have to clean it off.\"),(\"But 'Disinfecting' is the next, crucial level.\"),(\"That's defined as using a chemical to destroy pathogens\u2014bacteria, viruses, and fungi.\"),(\"This is about fighting the invisible enemy you can't see.\"),(\"They are a one-two punch; you must do both.\")\n(\"Imagine you've finished a haircut.\"),(\"You see hair clippings on your shears.\"),(\"You wipe them off with a towel.\"),(\"At this point, the shears look clean.\"),(\"But are they disinfected?\"),(\"Absolutely not.\"),(\"You've only completed the first step.\"),(\"The invisible pathogens are still having a party on that surface.\"),(\"Trying to use those shears on the next client would be a massive violation.\"),(\"You MUST first clean off the visible debris, and THEN properly immerse them in an EPA-registered disinfectant to destroy the germs.\"),(\"One step without the other is a total failure of the process.\")\n(\"So let's lock this in.\"),(\"Clean what you see, then disinfect to kill what you can't see.\"),(\"One is visible, the other is invisible.\"),(\"Mastering this two-step process is the absolute core of being a responsible, safe, and trusted professional.\")\n"
+      }
+    },
+    {
+      "atom_id": "aud-001",
+      "atom_type": "audio",
+      "asset_id": "block_001/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-001"
+      }
+    }
+  ]
+}

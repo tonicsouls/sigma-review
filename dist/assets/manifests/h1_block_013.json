@@ -1,0 +1,93 @@
+{
+  "block_id": "013",
+  "block_title": "Single-Use Items: The Disposables",
+  "lesson_title": "Hour 1 Lesson",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.100(7)",
+  "atoms": [
+    {
+      "atom_id": "vis-013-a",
+      "atom_type": "visual",
+      "asset_id": "block_013/slide_a.png",
+      "metadata": {
+        "prompt": "A fun graphic where single-use items (an emery board, a cotton ball, an orangewood stick) are shown with little superhero capes, flying into a trash can. The title reads \"The Unsung Heroes\".",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-013-b",
+      "atom_type": "visual",
+      "asset_id": "block_013/slide_b.png",
+      "metadata": {
+        "prompt": "A macro shot of a drop of water instantly absorbing into the surface of a paper towel, visually explaining what 'porous' means.",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-013-c",
+      "atom_type": "visual",
+      "asset_id": "block_013/slide_c.png",
+      "metadata": {
+        "prompt": "A clear graphic with three icons: a tree (for wood), a piece of paper, and a cotton ball. Text below reads: \"Porous Materials = Single-Use\".",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-013-d",
+      "atom_type": "visual",
+      "asset_id": "block_013/slide_d.png",
+      "metadata": {
+        "prompt": "A shot of a nail technician's drawer, but it's filled with used, dirty-looking emery boards and used orangewood sticks. A big, red, animated 'X' stamps over the drawer.",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-013-e",
+      "atom_type": "visual",
+      "asset_id": "block_013/slide_e.png",
+      "metadata": {
+        "prompt": "A satisfying shot of a gloved hand decisively dropping a used emery board into a hands-free trash can after a service.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-013-f",
+      "atom_type": "visual",
+      "asset_id": "block_013/slide_f.png",
+      "metadata": {
+        "prompt": "A shot of a nail technician opening a brand new, sealed pack containing a new file and sterile cotton swab for a client, showcasing perfect hygiene.",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "vis-013-g",
+      "atom_type": "visual",
+      "asset_id": "block_013/slide_g.png",
+      "metadata": {
+        "prompt": "The phrase \"WHEN IN DOUBT, THROW IT OUT\" appears in big, bold, friendly letters on the screen, holding as the final message.",
+        "description": "Slide G"
+      }
+    },
+    {
+      "atom_id": "script-013",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "We've talked about the keepers. Now let's talk about the disposables. These are the items you use once and then say goodbye. What makes an item single-use?",
+        "COSMETOLOGY_CONNECTION": "Knowing what to throw away is just as important as knowing what to keep. This protects every single client from cross-contamination and is a bright, clear line you can never cross.",
+        "THE_LAW": "The law defines single-use items as porous materials (like wood, paper, and cotton products) that absorb liquids and *cannot* be properly cleaned, disinfected, or sterilized. This includes items such as tissues, orangewood sticks, cotton balls, thread, surgical tape, extension pads, and gauze. The rule is simple: use it once, then toss it."
+      },
+      "metadata": {
+        "full_script": "(\"We've celebrated the keepers, now it's time to honor the disposables.\"),(\"These are the unsung heroes of sanitation\u2014the tools you use once to ensure perfect hygiene and then toss without a second thought.\"),(\"Let's do a power-up on the world of single-use items.\")\n(\"The rule for single-use items is the polar opposite of multi-use items.\"),(\"A single-use item is defined as a porous item made of cloth, wood, or other absorbent materials having rough surfaces, usually intended for single use.\"),(\"This means if a material can soak up liquid, it's porous, and you can't guarantee that you've disinfected it because germs could be hiding inside.\"),(\"This category generally includes all of your wood, paper, and cotton products.\"),(\"Think tissues, orangewood sticks, cotton balls, thread, surgical tape, extension pads, and gauze.\")\n(\"Let's take a common single-use item like an orangewood stick.\"),(\"After you use it to push back cuticles, that stick has touched skin and absorbed cells and microbes.\"),(\"You can't wash it, and you can't soak it to disinfect it.\"),(\"Trying to reuse it on another client is a huge cross-contamination risk and a serious violation.\"),(\"An inspector seeing used orangewood sticks on a station knows immediately that the professional isn't following the rules.\")\n(\"So the mantra is simple: if it's porous and cannot be disinfected, it's disposable.\"),(\"Wood, paper, cotton\u2014they are all single-use heroes.\"),(\"Use them once to give your client a safe and dedicated service, and then toss them.\"),(\"And the ultimate rule that never fails: when in doubt, throw it out.\")\n"
+      }
+    },
+    {
+      "atom_id": "aud-013",
+      "atom_type": "audio",
+      "asset_id": "block_013/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-013"
+      }
+    }
+  ]
+}

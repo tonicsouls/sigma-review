@@ -1,0 +1,84 @@
+{
+  "block_id": "005",
+  "block_title": "Bleach Logic: Measurement Math",
+  "lesson_title": "Hour 1 Lesson",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.100(1)",
+  "atoms": [
+    {
+      "atom_id": "vis-005-a",
+      "atom_type": "visual",
+      "asset_id": "block_005/slide_a.png",
+      "metadata": {
+        "prompt": "A clean, graphic title card: \"Bleach Math\" with icons of a teaspoon and a measuring cup. The look is friendly and educational, like a modern cooking show.",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-005-b",
+      "atom_type": "visual",
+      "asset_id": "block_005/slide_b.png",
+      "metadata": {
+        "prompt": "An animation showing 2 teaspoons dropping into a gallon jug of water. A label pops up: \"LOW-LEVEL: 2 tsp / gallon\". The background is a clean floor pattern.",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-005-c",
+      "atom_type": "visual",
+      "asset_id": "block_005/slide_c.png",
+      "metadata": {
+        "prompt": "An animation showing a 1/3 cup measure pouring into a gallon jug. A label pops up: \"HIGH-LEVEL: 1/3 cup / gallon\". The background is a pattern of combs and shears.",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-005-d",
+      "atom_type": "visual",
+      "asset_id": "block_005/slide_d.png",
+      "metadata": {
+        "prompt": "An animation showing a 1\u00be cup measure pouring into a gallon jug. A label pops up: \"10% SOLUTION: 1\u00be cups / gallon\". The background is a red cross / biohazard pattern.",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-005-e",
+      "atom_type": "visual",
+      "asset_id": "block_005/slide_e.png",
+      "metadata": {
+        "prompt": "A shot of a person just carelessly splashing bleach from the bottle into a bucket, with a big red 'X' over the image. The text \"Don't Guess, Measure!\" is prominent.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-005-f",
+      "atom_type": "visual",
+      "asset_id": "block_005/slide_f.png",
+      "metadata": {
+        "prompt": "A final shot showing three perfectly mixed, labeled spray bottles, ready for use in a clean, professional salon setting.",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "script-005",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "We know there are three levels of bleach solution, but how do we actually mix them? It's time for some simple, but crucial, measurement math that every professional needs to know by heart.",
+        "COSMETOLOGY_CONNECTION": "Properly measuring your bleach solutions is just as important as knowing which one to use. An incorrect measurement can make your solution too weak to be effective, or so strong it could damage your tools and surfaces. Precision is key.",
+        "THE_LAW": "The law provides specific ratios: 2 teaspoons of bleach per gallon of water for Low-Level, 1/3 cup of bleach per gallon for High-Level, and 1\u00be cups of bleach per gallon for the 10% Blood Spill solution. Guessing is not an option."
+      },
+      "metadata": {
+        "full_script": "(\"Okay, we've covered the 'what' of the three bleach solutions, now let's get into the 'how.'\"),(\"It's time for some super simple kitchen chemistry!\"),(\"Knowing these measurements by heart is a pro-level move.\"),(\"Let's power up our measurement math.\")\n(\"The state rules don't want you to guess, so they give us the exact recipes.\"),(\"First, for your Low-Level solution for floors and surfaces, the mix is two teaspoons of bleach per gallon of water.\"),(\"Super simple.\"),(\"Next, for the High-Level solution for disinfecting your tools, it's one-third of a cup of bleach per gallon of water.\"),(\"Finally, for that critical 10% Blood Spill solution, the mix is one and three-quarters cups of bleach per gallon of water.\")\n(\"Think about how different those amounts are!\"),(\"Two *teaspoons* for the floor, but nearly two *cups* for a blood spill.\"),(\"What's the violation here?\"),(\"Eyeballing it.\"),(\"Just splashing a 'little bit' of bleach into a bucket of water is not compliant.\"),(\"You might be creating a solution that's far too weak to actually kill anything, giving you a false sense of security.\"),(\"Or, you could make it way too strong, potentially damaging your surfaces or implements over time.\"),(\"Precision matters.\")\n(\"So, let's recap the magic numbers.\"),(\"Low-Level is 2 teaspoons.\"),(\"High-Level is one-third of a cup.\"),(\"And the 10% Blood solution is one and three-quarters cups.\"),(\"All per gallon of water.\"),(\"Don't guess, measure.\"),(\"That's the mark of a true professional.\")\n"
+      }
+    },
+    {
+      "atom_id": "aud-005",
+      "atom_type": "audio",
+      "asset_id": "block_005/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-005"
+      }
+    }
+  ]
+}

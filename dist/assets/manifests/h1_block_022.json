@@ -1,0 +1,84 @@
+{
+  "block_id": "022",
+  "block_title": "Hand Hygiene: The First Defense",
+  "lesson_title": "Hour 1 Lesson",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.102(a)",
+  "atoms": [
+    {
+      "atom_id": "vis-022-a",
+      "atom_type": "visual",
+      "asset_id": "block_022/slide_a.png",
+      "metadata": {
+        "prompt": "An engaging title card: \"Your Hands: First Line of Defense!\" with a dynamic image of clean, gloved hands.",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-022-b",
+      "atom_type": "visual",
+      "asset_id": "block_022/slide_b.png",
+      "metadata": {
+        "prompt": "A stylist vigorously washing their hands at a modern salon sink, with lots of soap bubbles. The water is running. The image is clean and active.",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-022-c",
+      "atom_type": "visual",
+      "asset_id": "block_022/slide_c.png",
+      "metadata": {
+        "prompt": "A clear graphic comparing soap and water vs. hand sanitizer. On one side: a sink icon with \"SOAP & WATER = Primary.\" On the other: a hand sanitizer bottle icon with \"HAND SANITIZER = Secondary / Supplement.\"",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-022-d",
+      "atom_type": "visual",
+      "asset_id": "block_022/slide_d.png",
+      "metadata": {
+        "prompt": "A shot of a stylist's hands covered in hair color or product. They are turning towards a sink with a determined expression. A red 'X' hovers over a hand sanitizer bottle.",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-022-e",
+      "atom_type": "visual",
+      "asset_id": "block_022/slide_e.png",
+      "metadata": {
+        "prompt": "A split-screen. On the left: Hands covered in visible dirt, with a red 'X' over a hand sanitizer bottle. On the right: Clean hands, with a green checkmark over a hand sanitizer bottle.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-022-f",
+      "atom_type": "visual",
+      "asset_id": "block_022/slide_f.png",
+      "metadata": {
+        "prompt": "A final shot of a stylist confidently greeting a client with clean, professional hands, symbolizing trust and safety.",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "script-022",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "Before every client, you know it's critical to clean your hands. But which is the best method for reducing germs and staying compliant: good old soap and water, or a quick pump of hand sanitizer?",
+        "COSMETOLOGY_CONNECTION": "Your hands are your most important tools, and they are also the biggest potential source of cross-contamination. Mastering proper hand hygiene is your absolute first line of defense, protecting both you and your clients.",
+        "THE_LAW": "The law emphasizes vigorous hand washing with soap and water as the primary method for cleansing hands before and after serving each client. Alcohol-based hand sanitizers (with at least 60% alcohol) are permitted as a supplementary measure when hand washing facilities are unavailable or for quick refreshes, but they do not replace washing with visible soil present."
+      },
+      "metadata": {
+        "full_script": "(\"Alright pros, let's talk about the unsung heroes of sanitation: your hands!\"),(\"They are your most valuable tools, but they can also be the biggest source of germs if not properly cared for.\"),(\"Let's do a power-up on hand hygiene and clarify the soap-and-water vs. hand-sanitizer debate.\")\n(\"The law is clear.\"),(\"Your primary and most effective method for cleaning your hands before and after *every single client* is vigorous hand washing with soap and water.\"),(\"We're talking 20 seconds, singing 'Happy Birthday' twice, getting under the nails.\"),(\"This physically removes dirt, debris, and a huge amount of germs.\"),(\"Hand sanitizers, specifically those with at least 60% alcohol, are a great *supplement*.\"),(\"They're handy for quick refreshes or when a sink isn't immediately available.\"),(\"But here\u2019s the crucial distinction: they don't replace hand washing, especially if your hands are visibly soiled.\")\n(\"You're doing a messy color service, and your hands get covered in product.\"),(\"Do you reach for the hand sanitizer?\"),(\"Absolutely not.\"),(\"That's a direct violation.\"),(\"The sanitizer won't remove the visible soil, and it won't be as effective at killing germs through the gunk.\"),(\"You *must* go to the sink and wash your hands thoroughly with soap and water.\"),(\"Another scenario: you're between clients, your hands *feel* clean, and you just need a quick refresh before grabbing new tools.\"),(\"A quick pump of hand sanitizer is perfectly acceptable there.\")\n(\"So, lock this in: Soap and water is the gold standard, especially if your hands are visibly soiled.\"),(\"Hand sanitizer is a fantastic secondary tool for quick refreshes when there\u2019s no visible dirt.\"),(\"Always wash, then sanitize.\"),(\"It's your first line of defense!\")\n"
+      }
+    },
+    {
+      "atom_id": "aud-022",
+      "atom_type": "audio",
+      "asset_id": "block_022/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-022"
+      }
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "block_id": "003",
+  "block_title": "Block 003 - The Money Question (Demo Hydration)",
+  "lesson_title": "Hydration Test",
+  "hour_name": "Hour 1",
+  "duration_minutes": 4,
+  "tdlr_citation": "IRS & TX SOS",
+  "atoms": [
+    {
+      "atom_id": "vis-003-a",
+      "atom_type": "visual",
+      "asset_id": "block_003/slide_a.jpeg",
+      "metadata": {
+        "prompt": "EIN and Bank Account Overview",
+        "description": "Slide A",
+        "duration": 21
+      }
+    },
+    {
+      "atom_id": "vis-003-b",
+      "atom_type": "visual",
+      "asset_id": "block_003/slide_b.jpeg",
+      "metadata": {
+        "prompt": "IRS Website for EIN",
+        "description": "Slide B",
+        "duration": 21
+      }
+    },
+    {
+      "atom_id": "vis-003-c",
+      "atom_type": "visual",
+      "asset_id": "block_003/slide_c.jpeg",
+      "metadata": {
+        "prompt": "Banking options",
+        "description": "Slide C",
+        "duration": 21
+      }
+    },
+    {
+      "atom_id": "vis-003-d",
+      "atom_type": "visual",
+      "asset_id": "block_003/slide_d.jpeg",
+      "metadata": {
+        "prompt": "Co-mingling funds warning",
+        "description": "Slide D",
+        "duration": 21
+      }
+    },
+    {
+      "atom_id": "script-003",
+      "atom_type": "script",
+      "metadata": {
+        "speaker": "Instructor"
+      },
+      "content": {
+        "SCENARIO": "Jessica has formed her LLC. Now she must set up her business finances correctly to maintain the LLC's legal protection.",
+        "COSMETOLOGY_CONNECTION": "The single most important rule is to avoid 'co-mingling' funds. An EIN establishes the LLC as a separate financial entity.",
+        "THE_LAW": "Failing to keep business and personal finances separate can allow a court to 'pierce the corporate veil,' making you personally liable."
+      }
+    },
+    {
+      "atom_id": "aud-003",
+      "atom_type": "audio",
+      "asset_id": "block_003/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-003",
+        "duration": 240
+      }
+    },
+    {
+      "atom_id": "quiz-003",
+      "atom_type": "quiz",
+      "quiz_type": "flashcard",
+      "metadata": {
+        "difficulty": "intermediate",
+        "points": 10
+      },
+      "content": {
+        "questions": [
+          {
+            "id": "q1",
+            "question": "What does EIN stand for?",
+            "options": [
+              {
+                "text": "Employer Identification Number",
+                "isCorrect": true
+              },
+              {
+                "text": "Electronic Insurance Network",
+                "isCorrect": false
+              }
+            ],
+            "feedback": "Correct! It's your business's social security number."
+          }
+        ]
+      }
+    }
+  ]
+}

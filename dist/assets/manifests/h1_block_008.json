@@ -1,0 +1,84 @@
+{
+  "block_id": "008",
+  "block_title": "Contact Time (The 'Wet' Rule)",
+  "lesson_title": "Hour 1 Lesson",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.101(a)",
+  "atoms": [
+    {
+      "atom_id": "vis-008-a",
+      "atom_type": "visual",
+      "asset_id": "block_008/slide_a.png",
+      "metadata": {
+        "prompt": "A gloved hand spraying a disinfectant on a clean countertop. The shot is dynamic, with the spray catching the light.",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-008-b",
+      "atom_type": "visual",
+      "asset_id": "block_008/slide_b.png",
+      "metadata": {
+        "prompt": "A close-up on the back of a disinfectant bottle, with the words \"CONTACT TIME: 10 MINUTES\" highlighted by a glowing animated circle.",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-008-c",
+      "atom_type": "visual",
+      "asset_id": "block_008/slide_c.png",
+      "metadata": {
+        "prompt": "A shot of a person spraying a surface and immediately wiping it with a paper towel. A giant, red, animated 'X' appears over the image with the text \"NO! Don't wipe yet!\".",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-008-d",
+      "atom_type": "visual",
+      "asset_id": "block_008/slide_d.png",
+      "metadata": {
+        "prompt": "A shot of a stylist setting a cool, modern digital timer on their station next to a freshly sprayed, wet surface. The timer reads \"10:00\".",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-008-e",
+      "atom_type": "visual",
+      "asset_id": "block_008/slide_e.png",
+      "metadata": {
+        "prompt": "A time-lapse style animation showing the timer counting down while animated germs on the wet surface are slowly zapped out of existence.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-008-f",
+      "atom_type": "visual",
+      "asset_id": "block_008/slide_f.png",
+      "metadata": {
+        "prompt": "The timer hits \"00:00\" and a gloved hand comes in and confidently wipes the now-disinfected surface dry with a clean cloth. The surface sparkles.",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "script-008",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "You've got the right disinfectant. You spray it on your cleaned station, and immediately wipe it dry. Is that station truly disinfected? Not a chance. Let's talk about the most commonly ignored rule in disinfection.",
+        "COSMETOLOGY_CONNECTION": "Patience is a virtue, especially in sanitation. Understanding and respecting 'contact time' is the difference between actually killing germs and just making your surfaces wet. This is a rule that separates the rookies from the pros.",
+        "THE_LAW": "The law is simple: you must follow the manufacturer's instructions for contact time. If the bottle says 'keep wet for 10 minutes,' it means the surface must remain visibly wet for the entire 10 minutes to be effective. Wiping it dry too soon is a major violation."
+      },
+      "metadata": {
+        "full_script": "(\"Okay, let's talk about the secret ingredient to making your disinfectants actually work.\"),(\"It's not a chemical, it's an action... or rather, a lack of action.\"),(\"It\u2019s called 'Contact Time,' and it's probably the most commonly violated rule in the book.\"),(\"Let's do a power-up on the 'Wet' rule.\")\n(\"So you've cleaned your station and you've sprayed it with your awesome, EPA-registered, triple-threat disinfectant.\"),(\"Your job is done, right?\"),(\"Wrong!\"),(\"The magic doesn't happen instantly.\"),(\"Every disinfectant needs a specific amount of time to do its job.\"),(\"This is the contact time, and it's printed on the label.\"),(\"The rule is simple: the surface must remain visibly wet for the entire duration specified by the manufacturer.\")\n(\"Let's say the bottle says, 'keep wet for 10 minutes.'\"),(\"If you spray the counter and then immediately wipe it dry, you've completely defeated the purpose of the disinfectant.\"),(\"The chemicals didn't have time to work.\"),(\"It\u2019s like trying to bake a cake in 30 seconds.\"),(\"You have to let it sit!\"),(\"A classic violation is the 'spray and wipe.'\"),(\"A compliant pro will spray the surface and walk away, setting a timer if needed, to ensure the station stays wet for the full contact time before they wipe it down.\")\n(\"So the pro move is this: read the label, know the contact time, and respect it.\"),(\"Let your disinfectant do its job.\"),(\"Patience is the key to a truly disinfected surface.\"),(\"Remember the 'Wet' rule: if it's not wet, it's not working.\")\n"
+      }
+    },
+    {
+      "atom_id": "aud-008",
+      "atom_type": "audio",
+      "asset_id": "block_008/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-008"
+      }
+    }
+  ]
+}

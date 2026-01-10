@@ -1,0 +1,126 @@
+{
+  "block_id": "001",
+  "block_title": "The Inspector's Mission",
+  "lesson_title": "Lesson Demo",
+  "hour_name": "Hour 4",
+  "duration_minutes": 5,
+  "tdlr_citation": "Chapter 1602",
+  "atoms": [
+    {
+      "atom_id": "vis-001-a",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_a.jpeg",
+      "metadata": {
+        "prompt": "Shot A",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-001-b",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_b.jpeg",
+      "metadata": {
+        "prompt": "Shot B",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-001-c",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_c.jpeg",
+      "metadata": {
+        "prompt": "Shot C",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-001-d",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_d.jpeg",
+      "metadata": {
+        "prompt": "Shot D",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-001-e",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_e.jpeg",
+      "metadata": {
+        "prompt": "Shot E",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-001-f",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_f.jpeg",
+      "metadata": {
+        "prompt": "Shot F",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "vis-001-g",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_g.jpeg",
+      "metadata": {
+        "prompt": "Shot G",
+        "description": "Slide G"
+      }
+    },
+    {
+      "atom_id": "vis-001-h",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_h.jpeg",
+      "metadata": {
+        "prompt": "Shot H",
+        "description": "Slide H"
+      }
+    },
+    {
+      "atom_id": "vis-001-i",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_i.jpeg",
+      "metadata": {
+        "prompt": "Shot I",
+        "description": "Slide I"
+      }
+    },
+    {
+      "atom_id": "vis-001-j",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_j.jpeg",
+      "metadata": {
+        "prompt": "Shot J",
+        "description": "Slide J"
+      }
+    },
+    {
+      "atom_id": "vis-001-k",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_k.jpeg",
+      "metadata": {
+        "prompt": "Shot K",
+        "description": "Slide K"
+      }
+    },
+    {
+      "atom_id": "script-001",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "Welcome to the Veteran's Virtual Inspection. In this hour, you are a TDLR inspector. Your mission is to conduct a full inspection of 'The Glam Room,' a ten-year-old salon where some bad habits may have formed. Your job is to find the violations.",
+        "COSMETOLOGY_CONNECTION": "We will move through the salon area by area, from reception to the treatment rooms. Some violations will be obvious, but many will be subtle, testing the keen eye of a veteran professional. The goal is to develop a 'compliance mindset' so you can automatically spot risks in your own environment.",
+        "THE_LAW": "The best way to ensure your own compliance is to learn to see your workspace through the critical eyes of an inspector. This hour will train you to move from hoping you'll pass an inspection to knowing you are operating at the highest standard of safety and legality."
+      }
+    },
+    {
+      "atom_id": "aud-001",
+      "atom_type": "audio",
+      "asset_id": "block_001/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-001"
+      }
+    }
+  ]
+}
