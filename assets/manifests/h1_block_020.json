@@ -1,0 +1,84 @@
+{
+  "block_id": "020",
+  "block_title": "The Dry Storage Rule (Drawers/Containers)",
+  "lesson_title": "Hour 1 Lesson",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.102(f)",
+  "atoms": [
+    {
+      "atom_id": "vis-020-a",
+      "atom_type": "visual",
+      "asset_id": "block_020/slide_a.png",
+      "metadata": {
+        "prompt": "An engaging title card: \"The Dry Storage Rule\" with an icon of a closed drawer and clean tools.",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-020-b",
+      "atom_type": "visual",
+      "asset_id": "block_020/slide_b.png",
+      "metadata": {
+        "prompt": "A stylist placing freshly disinfected combs and brushes into a clean, clear, covered container. The container is labeled \"Disinfected Tools\".",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-020-c",
+      "atom_type": "visual",
+      "asset_id": "block_020/slide_c.png",
+      "metadata": {
+        "prompt": "A shot of combs and brushes lying openly on a clean towel on a counter. A cloud of animated dust and microscopic particles floats down onto them. A red 'X' appears over the tools.",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-020-d",
+      "atom_type": "visual",
+      "asset_id": "block_020/slide_d.png",
+      "metadata": {
+        "prompt": "A split-screen. On one side, a clean, organized drawer with tools neatly separated. On the other, a messy, open drawer with tools jumbled together.",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-020-e",
+      "atom_type": "visual",
+      "asset_id": "block_020/slide_e.png",
+      "metadata": {
+        "prompt": "A shot of a salon professional confidently pulling a tool from a closed, clean drawer, ready for use.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-020-f",
+      "atom_type": "visual",
+      "asset_id": "block_020/slide_f.png",
+      "metadata": {
+        "prompt": "A graphic with three checkmarks: \"Clean\", \"Dry\", \"CLOSED\".",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "script-020",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "Your tools are sparkling clean and perfectly disinfected. Amazing! But where do they go now? You can't just leave them lying around. Proper storage is the final step in keeping your implements safe and ready.",
+        "COSMETOLOGY_CONNECTION": "The way you store your tools speaks volumes about your professionalism. Secure, dry storage prevents re-contamination and demonstrates your commitment to client safety, earning trust and confidence.",
+        "THE_LAW": "The law requires that all cleaned and disinfected implements be stored in a clean, dry, *closed* container or drawer. Leaving them exposed to the air or dust is a direct violation, as it allows for easy re-contamination."
+      },
+      "metadata": {
+        "full_script": "(\"You've worked hard to clean and disinfect your tools.\"),(\"You've fought the invisible enemy.\"),(\"But your job isn't done until those tools are safely tucked away.\"),(\"Let's do a power-up on the final frontier of sanitation: the Dry Storage Rule.\")\n(\"This rule is all about preventing re-contamination.\"),(\"The state requires that all cleaned and disinfected implements be stored in a clean, dry, and *closed* container or drawer.\"),(\"Think about it.\"),(\"If you leave your freshly disinfected combs just sitting out on the counter, they're immediately exposed to dust, airborne particles, and whatever else is floating around the salon.\"),(\"They're basically getting dirty all over again.\"),(\"The purpose of closed storage is to maintain that sanitary state until you're ready to use them.\")\n(\"Here's a common inspection red flag: an inspector walks by a station and sees disinfected shears or combs just lying openly on a clean towel on the counter.\"),(\"While the intention might be good \u2013 'I just disinfected them!' \u2013 it's a direct violation.\"),(\"Those tools are now considered re-contaminated.\"),(\"They're no longer in a sanitary condition because they haven't been stored properly.\"),(\"This means they'd have to be re-cleaned and re-disinfected before being used on a client.\"),(\"Save yourself the hassle, and keep them covered.\")\n(\"So, the golden rule of storage is: clean, dry, and closed.\"),(\"Always store your freshly disinfected tools in a designated, covered container or drawer.\"),(\"It's the final, crucial step to ensure they stay safe for your clients and compliant with state regulations.\")\n"
+      }
+    },
+    {
+      "atom_id": "aud-020",
+      "atom_type": "audio",
+      "asset_id": "block_020/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-020"
+      }
+    }
+  ]
+}

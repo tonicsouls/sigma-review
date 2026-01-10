@@ -1,0 +1,81 @@
+{
+  "block_id": "014",
+  "block_title": "Block 014",
+  "lesson_title": "Lesson Demo",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.100",
+  "atoms": [
+    {
+      "atom_id": "vis-014-a",
+      "atom_type": "visual",
+      "asset_id": "block_014/slide_a.png",
+      "metadata": {
+        "prompt": "A shot of a nail tech's drawer with several small, ziplock baggies, each with a name written on it, containing a used-looking nail file. A large, red, animated 'X' stamps down on the image.",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-014-b",
+      "atom_type": "visual",
+      "asset_id": "block_014/slide_b.png",
+      "metadata": {
+        "prompt": "An animation showing germs and bacteria multiplying inside one of the sealed baggies from the previous shot. The visual should be clear but not overly graphic, showing that the bag is not sanitary.",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-014-c",
+      "atom_type": "visual",
+      "asset_id": "block_014/slide_c.png",
+      "metadata": {
+        "prompt": "A 'cross-contamination' animation. The contaminated baggie from the previous shot is shown in a drawer, with animated germs 'leaking' out and spreading to the clean, new supplies around it.",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-014-d",
+      "atom_type": "visual",
+      "asset_id": "block_014/slide_d.png",
+      "metadata": {
+        "prompt": "A satisfying shot of a gloved hand throwing a used emery board directly into a trash can. The action is clean and decisive.",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-014-e",
+      "atom_type": "visual",
+      "asset_id": "block_014/slide_e.png",
+      "metadata": {
+        "prompt": "A shot of a nail tech presenting a brand new, sealed file and sterile cotton swab to a client at the start of a service. The client looks pleased and confident.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-014-f",
+      "atom_type": "visual",
+      "asset_id": "block_014/slide_f.png",
+      "metadata": {
+        "prompt": "A final, bold text graphic: \"ONE CLIENT. ONE SERVICE. ONE & DONE.\"",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "script-014",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "N/A",
+        "COSMETOLOGY_CONNECTION": "N/A",
+        "THE_LAW": "N/A"
+      }
+    },
+    {
+      "atom_id": "aud-014",
+      "atom_type": "audio",
+      "asset_id": "block_014/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-014"
+      }
+    }
+  ]
+}

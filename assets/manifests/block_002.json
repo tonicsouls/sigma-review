@@ -1,0 +1,126 @@
+{
+  "block_id": "002",
+  "block_title": "Inspection: The Reception Desk & Waiting Area",
+  "lesson_title": "Lesson Demo",
+  "hour_name": "Hour 4",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.100 & \u00a783.71",
+  "atoms": [
+    {
+      "atom_id": "vis-002-a",
+      "atom_type": "visual",
+      "asset_id": "block_002/slide_a.jpeg",
+      "metadata": {
+        "prompt": "Shot A",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-002-b",
+      "atom_type": "visual",
+      "asset_id": "block_002/slide_b.jpeg",
+      "metadata": {
+        "prompt": "Shot B",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-002-c",
+      "atom_type": "visual",
+      "asset_id": "block_002/slide_c.jpeg",
+      "metadata": {
+        "prompt": "Shot C",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-002-d",
+      "atom_type": "visual",
+      "asset_id": "block_002/slide_d.jpeg",
+      "metadata": {
+        "prompt": "Shot D",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-002-e",
+      "atom_type": "visual",
+      "asset_id": "block_002/slide_e.jpeg",
+      "metadata": {
+        "prompt": "Shot E",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-002-f",
+      "atom_type": "visual",
+      "asset_id": "block_002/slide_f.jpeg",
+      "metadata": {
+        "prompt": "Shot F",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "vis-002-g",
+      "atom_type": "visual",
+      "asset_id": "block_002/slide_g.jpeg",
+      "metadata": {
+        "prompt": "Shot G",
+        "description": "Slide G"
+      }
+    },
+    {
+      "atom_id": "vis-002-h",
+      "atom_type": "visual",
+      "asset_id": "block_002/slide_h.jpeg",
+      "metadata": {
+        "prompt": "Shot H",
+        "description": "Slide H"
+      }
+    },
+    {
+      "atom_id": "vis-002-i",
+      "atom_type": "visual",
+      "asset_id": "block_002/slide_i.jpeg",
+      "metadata": {
+        "prompt": "Shot I",
+        "description": "Slide I"
+      }
+    },
+    {
+      "atom_id": "vis-002-j",
+      "atom_type": "visual",
+      "asset_id": "block_002/slide_j.jpeg",
+      "metadata": {
+        "prompt": "Shot J",
+        "description": "Slide J"
+      }
+    },
+    {
+      "atom_id": "vis-002-k",
+      "atom_type": "visual",
+      "asset_id": "block_002/slide_k.jpeg",
+      "metadata": {
+        "prompt": "Shot K",
+        "description": "Slide K"
+      }
+    },
+    {
+      "atom_id": "script-002",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "Your virtual inspection of 'The Glam Room' begins at the front door. The reception and waiting area is your first opportunity to spot compliance issues, and an experienced inspector can learn a lot here.",
+        "COSMETOLOGY_CONNECTION": "Key inspection points include: Are all licenses and mandatory signs properly displayed? Is the area clean and in good repair? Is hand sanitizer available? Are retail product 'testers' handled hygienically with single-use applicators to prevent cross-contamination?",
+        "THE_LAW": "Violations in this area often relate to improper display of licenses (TDLR \u00a783.71) or poor general sanitation (TDLR \u00a783.100). This first impression tells an inspector a lot about the salon's overall commitment to a safe and compliant environment."
+      }
+    },
+    {
+      "atom_id": "aud-002",
+      "atom_type": "audio",
+      "asset_id": "block_002/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-002"
+      }
+    }
+  ]
+}

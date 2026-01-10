@@ -1,0 +1,84 @@
+{
+  "block_id": "019",
+  "block_title": "UV Box Limits (Storage Only!)",
+  "lesson_title": "Hour 1 Lesson",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.100(9)",
+  "atoms": [
+    {
+      "atom_id": "vis-019-a",
+      "atom_type": "visual",
+      "asset_id": "block_019/slide_a.png",
+      "metadata": {
+        "prompt": "A sleek, modern UV light box with a gentle blue glow. Tools are visible inside. The title \"UV Box Limits\" appears with a question mark.",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-019-b",
+      "atom_type": "visual",
+      "asset_id": "block_019/slide_b.png",
+      "metadata": {
+        "prompt": "A graphic with two large red 'X's. One 'X' covers an icon for \"Disinfection,\" the other covers \"Sterilization.\" Below them, a green checkmark next to \"Storage.\"",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-019-c",
+      "atom_type": "visual",
+      "asset_id": "block_019/slide_c.png",
+      "metadata": {
+        "prompt": "A shot of a dirty comb being put into a UV light box, with a large, red, animated 'X' stamping on the screen. The box glows red.",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-019-d",
+      "atom_type": "visual",
+      "asset_id": "block_019/slide_d.png",
+      "metadata": {
+        "prompt": "An animation showing the UV light trying to penetrate through visible residue on a comb, but being blocked. Animated germs are thriving under the residue.",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-019-e",
+      "atom_type": "visual",
+      "asset_id": "block_019/slide_e.png",
+      "metadata": {
+        "prompt": "A clear three-step graphic. Step 1: A comb being scrubbed with soap and water (CLEAN). Step 2: The comb soaking in disinfectant (DISINFECT). Step 3: The clean, disinfected comb being placed into a UV box (STORE).",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-019-f",
+      "atom_type": "visual",
+      "asset_id": "block_019/slide_f.png",
+      "metadata": {
+        "prompt": "A final shot of a salon professional confidently opening a UV box to retrieve a perfectly clean and disinfected tool, ready for use.",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "script-019",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "You've seen those cool UV light cabinets in some salons, often with a blue light glowing. They look futuristic and sanitary, but what exactly are they for? Are they sterilizers, disinfectants, or something else entirely?",
+        "COSMETOLOGY_CONNECTION": "Understanding the *actual* purpose of a UV light box is crucial to avoiding a common and serious violation. These devices have a role, but it's not what many professionals might think.",
+        "THE_LAW": "The law defines a 'Sanitizer' as a product or device that reduces the number of microorganisms to a safe level. While UV light *can* kill some germs, a 'UV light box' in a salon is legally considered only a storage unit for *already cleaned and disinfected* implements, not a primary method of disinfection or sterilization itself."
+      },
+      "metadata": {
+        "full_script": "(\"Okay, let's shine a light on one of the most commonly misunderstood pieces of equipment in the salon: the UV Sanitizer Box.\"),(\"They look cool, they glow blue, and they seem super sanitary.\"),(\"But what are they actually for?\"),(\"Let's power up on the legal limits of UV light boxes.\")\n(\"This is where many professionals get it wrong.\"),(\"The law defines a 'sanitizer' as a device that reduces microorganisms to a safe level.\"),(\"While UV light does have some germ-killing properties, those UV boxes you see in salons are *not* considered disinfectants or sterilizers by the state.\"),(\"Their legal purpose is very specific: they are to be used for storing implements that have *already* been thoroughly cleaned and disinfected.\"),(\"They help keep your tools in a sanitized condition after they've gone through the proper cleaning and disinfecting steps.\")\n(\"Here's the classic violation.\"),(\"A stylist finishes with a client, gives their comb a quick wipe, then tosses it into the UV box, thinking it's now 'sanitized' or 'disinfected' and ready for the next client.\"),(\"Nope!\"),(\"Putting a dirty or even a merely cleaned tool into a UV box and thinking it's now safe for use is a serious breach of sanitation.\"),(\"The UV light doesn't penetrate residue, and it can't achieve the high-level kill required for disinfection.\"),(\"It's a storage solution, not a magic germ-zapper for dirty tools.\")\n(\"So, let's be clear about the UV box.\"),(\"It's a fantastic storage solution for *already* clean and disinfected tools.\"),(\"It helps them stay sanitized.\"),(\"But it is not a primary method of disinfecting or sterilizing your implements.\"),(\"Always remember: Clean first, disinfect second, then store in the UV box.\")\n"
+      }
+    },
+    {
+      "atom_id": "aud-019",
+      "atom_type": "audio",
+      "asset_id": "block_019/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-019"
+      }
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "block_id": "011",
+  "block_title": "The Cleaning Ritual (Scrub then Soak)",
+  "lesson_title": "Hour 1 Lesson",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.102(c)",
+  "atoms": [
+    {
+      "atom_id": "vis-011-a",
+      "atom_type": "visual",
+      "asset_id": "block_011/slide_a.png",
+      "metadata": {
+        "prompt": "An energetic title card that says \"THE RITUAL\" with two icons below it: a scrub brush and a bubbling jar. An arrow points from the brush to the jar, emphasizing the order.",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-011-b",
+      "atom_type": "visual",
+      "asset_id": "block_011/slide_b.png",
+      "metadata": {
+        "prompt": "A close-up shot of gloved hands using a small, stiff brush to scrub the teeth of a comb under running water. The focus is on the cleaning action.",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-011-c",
+      "atom_type": "visual",
+      "asset_id": "block_011/slide_c.png",
+      "metadata": {
+        "prompt": "A close-up studio shot of a styling comb on a white surface. The comb has some visible hair strands caught in the teeth, indicating it needs cleaning. High definition, professional lighting.",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-011-d",
+      "atom_type": "visual",
+      "asset_id": "block_011/slide_d.png",
+      "metadata": {
+        "prompt": "A shot of a dirty comb being dropped into a disinfectant jar, with a huge, red, animated 'X' stamping on the screen. The water turns cloudy and gross.",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-011-e",
+      "atom_type": "visual",
+      "asset_id": "block_011/slide_e.png",
+      "metadata": {
+        "prompt": "A satisfying shot of a perfectly clean comb being gently lowered into a crystal-clear jar of blue disinfectant. Bubbles rise, and the shot is clean and professional.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-011-f",
+      "atom_type": "visual",
+      "asset_id": "block_011/slide_f.png",
+      "metadata": {
+        "prompt": "A final split screen. On the left, a \"Scrub\" icon with a checkmark. On the right, a \"Soak\" icon with a checkmark. The title above reads: \"Scrub THEN Soak. Always.\"",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "script-011",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "You've identified your multi-use items. Now what? You can't just toss them straight into the disinfectant. There's a critical first step, a ritual every pro must follow: Scrub then Soak.",
+        "COSMETOLOGY_CONNECTION": "Following this two-step process religiously is what makes disinfection possible. Skipping the 'scrub' phase can render the 'soak' phase useless, leaving your clients and your license at risk. It's a non-negotiable ritual.",
+        "THE_LAW": "The law requires that all multi-use items be thoroughly cleaned of all visible residue *before* being placed in disinfectant. This means physically scrubbing them with soap and water first. Disinfectant is not a magic soup that dissolves debris."
+      },
+      "metadata": {
+        "full_script": "(\"Okay, you've sorted your multi-use keepers from your single-use disposables.\"),(\"Fantastic.\"),(\"But you can't just throw those keepers straight into the disinfectant jar.\"),(\"That's a huge mistake.\"),(\"Let's power up on the most important ritual in sanitation: Scrub then Soak.\")\n(\"Think of it as a sacred two-step process.\"),(\"Before a multi-use tool can be disinfected, it must be thoroughly *cleaned*.\"),(\"The law is crystal clear on this.\"),(\"You have to remove all visible debris and residue first.\"),(\"This means getting out a brush and physically scrubbing the item with soap and water.\"),(\"Get into the grooves, the hinges, the teeth of the comb.\"),(\"Every bit of visible gunk must be gone.\"),(\"Only then is it ready for its disinfectant bath.\")\n(\"Here's the violation we see all the time: a stylist takes a comb with hair and product build-up still in it and drops it right into the Barbicide jar.\"),(\"What happens?\"),(\"The disinfectant has to fight through all that gunk, making it less effective.\"),(\"Even worse, that debris can float around and contaminate other tools in the jar.\"),(\"Disinfectant is not a magic soup that dissolves hair and gel.\"),(\"It's a chemical that kills germs on a *clean* surface.\"),(\"Dropping a dirty tool into disinfectant is like taking a shower with your clothes on.\"),(\"It just doesn't work.\")\n(\"So, burn this ritual into your brain: Scrub then Soak.\"),(\"Always, always, always physically scrub your multi-use items with soap and water to remove every speck of visible debris *before* you submerge them in disinfectant.\"),(\"That is the only way to guarantee a safe and effective result.\")\n"
+      }
+    },
+    {
+      "atom_id": "aud-011",
+      "atom_type": "audio",
+      "asset_id": "block_011/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-011"
+      }
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "block_id": "016",
+  "block_title": "Block 016",
+  "lesson_title": "Lesson Demo",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.100",
+  "atoms": [
+    {
+      "atom_id": "vis-016-a",
+      "atom_type": "visual",
+      "asset_id": "block_016/slide_a.png",
+      "metadata": {
+        "prompt": "An epic, cinematic title card. \"STERILIZATION: The Final Boss\" in a cool, metallic font.",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-016-b",
+      "atom_type": "visual",
+      "asset_id": "block_016/slide_b.png",
+      "metadata": {
+        "prompt": "An animation showing disinfectant \"bouncing off\" a tough, armored bacterial spore. The spore character looks tough and resistant.",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-016-c",
+      "atom_type": "visual",
+      "asset_id": "block_016/slide_c.png",
+      "metadata": {
+        "prompt": "A split screen. On the left, a sleek, modern Autoclave with steam effects, labeled \"AUTOCLAVE (Steam + Pressure)\". On the right, a Dry Heat Sterilizer with heatwave effects, labeled \"DRY HEAT (High Temp)\".",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-016-d",
+      "atom_type": "visual",
+      "asset_id": "block_016/slide_d.png",
+      "metadata": {
+        "prompt": "A shot of a gloved hand carefully placing a sealed sterilization pouch containing metal tools into an autoclave.",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-016-e",
+      "atom_type": "visual",
+      "asset_id": "block_016/slide_e.png",
+      "metadata": {
+        "prompt": "The autoclave door closes, and an animation shows the tough bacterial spores from the earlier image being zapped and destroyed by the intense heat and pressure inside.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-016-f",
+      "atom_type": "visual",
+      "asset_id": "block_016/slide_f.png",
+      "metadata": {
+        "prompt": "A shot of a fresh, sterile pouch being opened in front of a client, with steam gently rising. The tools inside are pristine.",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "vis-016-g",
+      "atom_type": "visual",
+      "asset_id": "block_016/slide_g.png",
+      "metadata": {
+        "prompt": "A final shot of an esthetician confidently and safely performing a service, with the autoclave visible but out of focus in the background, symbolizing the highest level of professional care.",
+        "description": "Slide G"
+      }
+    },
+    {
+      "atom_id": "script-016",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "N/A",
+        "COSMETOLOGY_CONNECTION": "N/A",
+        "THE_LAW": "N/A"
+      }
+    },
+    {
+      "atom_id": "aud-016",
+      "atom_type": "audio",
+      "asset_id": "block_016/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-016"
+      }
+    }
+  ]
+}
