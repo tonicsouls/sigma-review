@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: '/sigma-review/',
+  base: command === 'build' ? '/sigma-review/' : '/',
   resolve: {
     dedupe: ['react', 'react-dom'],
   },
@@ -14,4 +14,4 @@ export default defineConfig({
       ],
     },
   },
-});
+}));
