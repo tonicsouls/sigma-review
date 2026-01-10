@@ -1,51 +1,96 @@
 {
   "block_id": "003",
-  "block_title": "Clean vs Disinfect Quiz",
-  "lesson_title": "Lesson 1",
+  "block_title": "Block 003 - The Money Question (Demo Hydration)",
+  "lesson_title": "Hydration Test",
   "hour_name": "Hour 1",
-  "duration_minutes": 1,
-  "tdlr_citation": "§83.100",
+  "duration_minutes": 4,
+  "tdlr_citation": "IRS & TX SOS",
   "atoms": [
+    {
+      "atom_id": "vis-003-a",
+      "atom_type": "visual",
+      "asset_id": "block_003/slide_a.jpeg",
+      "metadata": {
+        "prompt": "EIN and Bank Account Overview",
+        "description": "Slide A",
+        "duration": 21
+      }
+    },
+    {
+      "atom_id": "vis-003-b",
+      "atom_type": "visual",
+      "asset_id": "block_003/slide_b.jpeg",
+      "metadata": {
+        "prompt": "IRS Website for EIN",
+        "description": "Slide B",
+        "duration": 21
+      }
+    },
+    {
+      "atom_id": "vis-003-c",
+      "atom_type": "visual",
+      "asset_id": "block_003/slide_c.jpeg",
+      "metadata": {
+        "prompt": "Banking options",
+        "description": "Slide C",
+        "duration": 21
+      }
+    },
+    {
+      "atom_id": "vis-003-d",
+      "atom_type": "visual",
+      "asset_id": "block_003/slide_d.jpeg",
+      "metadata": {
+        "prompt": "Co-mingling funds warning",
+        "description": "Slide D",
+        "duration": 21
+      }
+    },
     {
       "atom_id": "script-003",
       "atom_type": "script",
-      "metadata": {"speaker": "Instructor"},
+      "metadata": {
+        "speaker": "Instructor"
+      },
       "content": {
-        "SCENARIO": "Time for a quick knowledge check! Let's see how well you know the difference between the two most important words in sanitation. Get ready!",
-        "COSMETOLOGY_CONNECTION": "Quickly and confidently knowing the difference between cleaning and disinfecting is a mark of a true professional. This quick quiz will sharpen that instinct.",
-        "THE_LAW": "This quiz validates your understanding of the core definitions of 'Clean' (§83.100(2)) and 'Disinfect' (§83.100(3))."
+        "SCENARIO": "Jessica has formed her LLC. Now she must set up her business finances correctly to maintain the LLC's legal protection.",
+        "COSMETOLOGY_CONNECTION": "The single most important rule is to avoid 'co-mingling' funds. An EIN establishes the LLC as a separate financial entity.",
+        "THE_LAW": "Failing to keep business and personal finances separate can allow a court to 'pierce the corporate veil,' making you personally liable."
+      }
+    },
+    {
+      "atom_id": "aud-003",
+      "atom_type": "audio",
+      "asset_id": "block_003/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-003",
+        "duration": 240
       }
     },
     {
       "atom_id": "quiz-003",
       "atom_type": "quiz",
       "quiz_type": "flashcard",
-      "metadata": {"difficulty": "beginner", "points": 10},
+      "metadata": {
+        "difficulty": "intermediate",
+        "points": 10
+      },
       "content": {
         "questions": [
           {
             "id": "q1",
-            "question": "You wipe down your station to remove all visible hair clippings and product residue. This action is called:",
-            "options": [{"text": "Cleaning", "isCorrect": true}, {"text": "Disinfecting", "isCorrect": false}],
-            "feedback": "Correct! 'Cleaning' is the process of removing all visible debris. It's the essential first step."
-          },
-          {
-            "id": "q2",
-            "question": "You immerse your metal shears in a liquid that is proven to kill bacteria, viruses, and fungi. This action is called:",
-            "options": [{"text": "Cleaning", "isCorrect": false}, {"text": "Disinfecting", "isCorrect": true}],
-            "feedback": "That's right! 'Disinfecting' is the use of a chemical to destroy pathogens. This can only happen after a tool has been cleaned."
-          },
-          {
-            "id": "q3",
-            "question": "The fight against the 'invisible enemy' (pathogens) is the primary goal of:",
-            "options": [{"text": "Cleaning", "isCorrect": false}, {"text": "Disinfecting", "isCorrect": true}],
-            "feedback": "Exactly! Disinfection is all about eliminating the microscopic pathogens you can't see."
-          },
-          {
-            "id": "q4",
-            "question": "If you can SEE it (debris, hair, dust), your job is to _______ it.",
-            "options": [{"text": "Clean", "isCorrect": true}, {"text": "Disinfect", "isCorrect": false}],
-            "feedback": "You got it! If it's visible, it needs to be cleaned off before any disinfection can happen."
+            "question": "What does EIN stand for?",
+            "options": [
+              {
+                "text": "Employer Identification Number",
+                "isCorrect": true
+              },
+              {
+                "text": "Electronic Insurance Network",
+                "isCorrect": false
+              }
+            ],
+            "feedback": "Correct! It's your business's social security number."
           }
         ]
       }

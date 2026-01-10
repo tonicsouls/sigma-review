@@ -1,0 +1,93 @@
+{
+  "block_id": "007",
+  "block_title": "Reading the Label (Bactericidal/Fungicidal/Virucidal)",
+  "lesson_title": "Hour 1 Lesson",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.100(5)",
+  "atoms": [
+    {
+      "atom_id": "vis-007-a",
+      "atom_type": "visual",
+      "asset_id": "block_007/slide_a.png",
+      "metadata": {
+        "prompt": "A stylist in a supply store, looking closely at a disinfectant bottle, like a detective examining evidence. The shot is fun and energetic.",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-007-b",
+      "atom_type": "visual",
+      "asset_id": "block_007/slide_b.png",
+      "metadata": {
+        "prompt": "A close-up on a disinfectant label. An animated magnifying glass moves over the word \"Bactericidal,\" which glows. A friendly bacterium icon appears and is zapped.",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-007-c",
+      "atom_type": "visual",
+      "asset_id": "block_007/slide_c.png",
+      "metadata": {
+        "prompt": "The animated magnifying glass moves over the word \"Fungicidal,\" which glows. A friendly fungus icon appears and is zapped.",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-007-d",
+      "atom_type": "visual",
+      "asset_id": "block_007/slide_d.png",
+      "metadata": {
+        "prompt": "The animated magnifying glass moves over the word \"Virucidal,\" which glows. A friendly virus icon appears and is zapped.",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-007-e",
+      "atom_type": "visual",
+      "asset_id": "block_007/slide_e.png",
+      "metadata": {
+        "prompt": "A shot of a different product label that only says \"Antibacterial.\" A big, red, animated 'X' stamps over the bottle.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-007-f",
+      "atom_type": "visual",
+      "asset_id": "block_007/slide_f.png",
+      "metadata": {
+        "prompt": "A graphic showing three green checkmarks next to the words \"Bactericidal,\" \"Fungicidal,\" and \"Virucidal.\" The checkmarks appear one by one with satisfying 'ding' sound effects.",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "vis-007-g",
+      "atom_type": "visual",
+      "asset_id": "block_007/slide_g.png",
+      "metadata": {
+        "prompt": "A confident stylist holding up the correct, compliant bottle of disinfectant with a proud smile. The salon behind them is bright and professional.",
+        "description": "Slide G"
+      }
+    },
+    {
+      "atom_id": "script-007",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "You're at the supply store, faced with a wall of disinfectant choices. They all look powerful, but how do you know for sure they meet the legal requirements for your salon? It's time to become an expert label reader.",
+        "COSMETOLOGY_CONNECTION": "This isn't just about picking a product, it's about compliance and safety. Choosing a disinfectant that is legally approved and effective against the 'big three' pathogens is a fundamental professional responsibility.",
+        "THE_LAW": "The law requires that your primary disinfectant be EPA-registered and specifically listed as bactericidal, fungicidal, AND virucidal. If it's missing even one of those three, it is not a compliant disinfectant for your tools and non-porous surfaces."
+      },
+      "metadata": {
+        "full_script": "(\"Okay pros, let's talk about being a detective in the supply aisle.\"),(\"When you're choosing the disinfectant that will protect you and your clients, you have to look for clues on the label.\"),(\"The most important clues are three specific, powerful words.\"),(\"Let's do a power-up on reading the label.\")\n(\"You know you need an EPA-registered product, but there's another layer to that.\"),(\"The state of Texas requires that the disinfectant you use for your implements be a triple threat.\"),(\"It has to be proven effective against all three types of our invisible enemies.\"),(\"The label must state that it is Bactericidal, which means it kills bacteria.\"),(\"It must also be Fungicidal, meaning it kills fungi.\"),(\"And finally, it must be Virucidal, meaning it kills viruses.\")\n(\"Imagine you buy a product that's advertised as 'antibacterial.'\"),(\"It sounds good, right?\"),(\"But you check the label and it only says 'bactericidal.'\"),(\"It says nothing about being fungicidal or virucidal.\"),(\"Is this product compliant for disinfecting your shears or nail clippers?\"),(\"No!\"),(\"This is a major and common violation.\"),(\"Using this product would leave your clients unprotected from viruses and fungi.\"),(\"You need the full trifecta of protection.\"),(\"The label must list all three.\")\n(\"So here's the expert tip you need to lock in: hunt for the big three.\"),(\"Always check the label to ensure your disinfectant is explicitly listed as bactericidal, fungicidal, AND virucidal.\"),(\"If it's not all three, it's not the right one for you.\")\n"
+      }
+    },
+    {
+      "atom_id": "aud-007",
+      "atom_type": "audio",
+      "asset_id": "block_007/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-007"
+      }
+    }
+  ]
+}

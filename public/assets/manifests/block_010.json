@@ -1,0 +1,90 @@
+{
+  "block_id": "010",
+  "block_title": "Block 010",
+  "lesson_title": "Lesson Demo",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.100",
+  "atoms": [
+    {
+      "atom_id": "vis-010-a",
+      "atom_type": "visual",
+      "asset_id": "block_010/slide_a.png",
+      "metadata": {
+        "prompt": "A fun, animated sorting game. A conveyor belt has various tools on it. A giant robotic arm sorts them into two bins: one labeled \"KEEPERS (Multi-Use)\" and one labeled \"TOSS (Single-Use)\".",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-010-b",
+      "atom_type": "visual",
+      "asset_id": "block_010/slide_b.png",
+      "metadata": {
+        "prompt": "A close-up shot showcasing the texture and quality of multi-use materials. A shiny pair of metal shears, a sparkling glass bowl, and a sturdy hard plastic comb are arranged beautifully.",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-010-c",
+      "atom_type": "visual",
+      "asset_id": "block_010/slide_c.png",
+      "metadata": {
+        "prompt": "A graphic with three icons: a magnet (for metal), a glass cup (for glass), and a plastic block (for plastic). Text below reads: \"Hard, Non-Porous Materials\".",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-010-d",
+      "atom_type": "visual",
+      "asset_id": "block_010/slide_d.png",
+      "metadata": {
+        "prompt": "A split-screen comparison. On the left, a pair of metal tweezers with a large green checkmark. On the right, a wooden cuticle stick with a large red 'X'.",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-010-e",
+      "atom_type": "visual",
+      "asset_id": "block_010/slide_e.png",
+      "metadata": {
+        "prompt": "A satisfying shot of a variety of multi-use tools (combs, clips, guards) being submerged in a disinfectant bath.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-010-f",
+      "atom_type": "visual",
+      "asset_id": "block_010/slide_f.png",
+      "metadata": {
+        "prompt": "A shot of a perfectly organized drawer in a salon, showing clean, disinfected multi-use tools neatly arranged and ready for the next service.",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "vis-010-g",
+      "atom_type": "visual",
+      "asset_id": "block_010/slide_g.png",
+      "metadata": {
+        "prompt": "A professional stylist selecting a clean, disinfected tool from their organized station, ready to begin a service on a client.",
+        "description": "Slide G"
+      }
+    },
+    {
+      "atom_id": "script-010",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "N/A",
+        "COSMETOLOGY_CONNECTION": "N/A",
+        "THE_LAW": "N/A"
+      }
+    },
+    {
+      "atom_id": "aud-010",
+      "atom_type": "audio",
+      "asset_id": "block_010/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-010"
+      }
+    }
+  ]
+}

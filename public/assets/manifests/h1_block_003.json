@@ -1,0 +1,22 @@
+{
+  "block_id": "003",
+  "block_title": "Clean vs Disinfect Quiz",
+  "lesson_title": "Hour 1 Lesson",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.100",
+  "atoms": [
+    {
+      "atom_id": "script-003",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "Time for a quick knowledge check! Let's see how well you know the difference between the two most important words in sanitation. Get ready!",
+        "COSMETOLOGY_CONNECTION": "Quickly and confidently knowing the difference between cleaning and disinfecting is a mark of a true professional. This quick quiz will sharpen that instinct.",
+        "THE_LAW": "This quiz validates your understanding of the core definitions of 'Clean' (\u00a783.100(2)) and 'Disinfect' (\u00a783.100(3))."
+      },
+      "metadata": {
+        "full_script": "N/A"
+      }
+    }
+  ]
+}

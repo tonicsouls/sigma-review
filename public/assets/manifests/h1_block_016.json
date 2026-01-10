@@ -1,0 +1,93 @@
+{
+  "block_id": "016",
+  "block_title": "Sterilization: The Ultimate Weapon",
+  "lesson_title": "Hour 1 Lesson",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.100(8)",
+  "atoms": [
+    {
+      "atom_id": "vis-016-a",
+      "atom_type": "visual",
+      "asset_id": "block_016/slide_a.png",
+      "metadata": {
+        "prompt": "An epic, cinematic title card. \"STERILIZATION: The Final Boss\" in a cool, metallic font.",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-016-b",
+      "atom_type": "visual",
+      "asset_id": "block_016/slide_b.png",
+      "metadata": {
+        "prompt": "An animation showing disinfectant \"bouncing off\" a tough, armored bacterial spore. The spore character looks tough and resistant.",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-016-c",
+      "atom_type": "visual",
+      "asset_id": "block_016/slide_c.png",
+      "metadata": {
+        "prompt": "A split screen. On the left, a sleek, modern Autoclave with steam effects, labeled \"AUTOCLAVE (Steam + Pressure)\". On the right, a Dry Heat Sterilizer with heatwave effects, labeled \"DRY HEAT (High Temp)\".",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-016-d",
+      "atom_type": "visual",
+      "asset_id": "block_016/slide_d.png",
+      "metadata": {
+        "prompt": "A shot of a gloved hand carefully placing a sealed sterilization pouch containing metal tools into an autoclave.",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-016-e",
+      "atom_type": "visual",
+      "asset_id": "block_016/slide_e.png",
+      "metadata": {
+        "prompt": "The autoclave door closes, and an animation shows the tough bacterial spores from the earlier image being zapped and destroyed by the intense heat and pressure inside.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-016-f",
+      "atom_type": "visual",
+      "asset_id": "block_016/slide_f.png",
+      "metadata": {
+        "prompt": "A shot of a fresh, sterile pouch being opened in front of a client, with steam gently rising. The tools inside are pristine.",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "vis-016-g",
+      "atom_type": "visual",
+      "asset_id": "block_016/slide_g.png",
+      "metadata": {
+        "prompt": "A final shot of an esthetician confidently and safely performing a service, with the autoclave visible but out of focus in the background, symbolizing the highest level of professional care.",
+        "description": "Slide G"
+      }
+    },
+    {
+      "atom_id": "script-016",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "Disinfection is powerful, but it doesn't kill everything. For tools that are meant to puncture skin, we need the ultimate weapon, a method that ensures 100% destruction of all microbial life.",
+        "COSMETOLOGY_CONNECTION": "Understanding sterilization is crucial for professionals who perform services like extractions, and it represents the highest standard of care in our industry. Knowing how to achieve it is a top-tier professional skill.",
+        "THE_LAW": "The law defines 'Sterilization' as the destruction of all microbial life, including highly resistant bacterial spores. This is most often achieved with an Autoclave (steam under pressure) or a Dry Heat sterilizer. Simply soaking a tool in disinfectant is not sterilization."
+      },
+      "metadata": {
+        "full_script": "(\"We've mastered cleaning and disinfecting.\"),(\"But there is one final, higher level of sanitation, reserved for specific tools and situations.\"),(\"It's time to talk about the boss level: Sterilization.\"),(\"Let's power up on this ultimate decontamination process.\")\n(\"So what makes sterilization different from disinfection?\"),(\"In a word: spores.\"),(\"While high-level disinfectants kill most bacteria, viruses, and fungi, they don't reliably kill highly resistant bacterial spores.\"),(\"Sterilization is the only process that destroys 100 percent of all microbial life, including those tough spores.\"),(\"This is why it's required for any implement that is designed to puncture or invade skin.\")\n(\"So how do we achieve this?\"),(\"The two most common methods in our industry are the Autoclave and the Dry Heat Sterilizer.\"),(\"An autoclave is like a pressure cooker for your tools, using steam under pressure to kill everything.\"),(\"A dry heat sterilizer is like a super-heated oven that bakes them clean.\"),(\"Let's say you're an esthetician using a metal extraction tool.\"),(\"You can't just soak it in Barbicide.\"),(\"Because that tool is designed to apply pressure and potentially break the skin, it must be cleaned, and then sealed in a pouch and sterilized in an autoclave or dry heat unit after every single use.\"),(\"Anything less is a serious violation.\")\n(\"Let's lock this in.\"),(\"Sterilization is total destruction of all microbial life, including spores.\"),(\"It's mandatory for specific implements, and it's achieved using machines like autoclaves and dry-heat sterilizers.\"),(\"When you need the absolute highest level of safety, sterilization is your ultimate weapon.\")\n"
+      }
+    },
+    {
+      "atom_id": "aud-016",
+      "atom_type": "audio",
+      "asset_id": "block_016/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-016"
+      }
+    }
+  ]
+}

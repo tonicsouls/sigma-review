@@ -1,0 +1,84 @@
+{
+  "block_id": "014",
+  "block_title": "The 'One Client' Law (No Saving Files)",
+  "lesson_title": "Hour 1 Lesson",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.100(7)",
+  "atoms": [
+    {
+      "atom_id": "vis-014-a",
+      "atom_type": "visual",
+      "asset_id": "block_014/slide_a.png",
+      "metadata": {
+        "prompt": "A shot of a nail tech's drawer with several small, ziplock baggies, each with a name written on it, containing a used-looking nail file. A large, red, animated 'X' stamps down on the image.",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-014-b",
+      "atom_type": "visual",
+      "asset_id": "block_014/slide_b.png",
+      "metadata": {
+        "prompt": "An animation showing germs and bacteria multiplying inside one of the sealed baggies from the previous shot. The visual should be clear but not overly graphic, showing that the bag is not sanitary.",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-014-c",
+      "atom_type": "visual",
+      "asset_id": "block_014/slide_c.png",
+      "metadata": {
+        "prompt": "A 'cross-contamination' animation. The contaminated baggie from the previous shot is shown in a drawer, with animated germs 'leaking' out and spreading to the clean, new supplies around it.",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-014-d",
+      "atom_type": "visual",
+      "asset_id": "block_014/slide_d.png",
+      "metadata": {
+        "prompt": "A satisfying shot of a gloved hand throwing a used emery board directly into a trash can. The action is clean and decisive.",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-014-e",
+      "atom_type": "visual",
+      "asset_id": "block_014/slide_e.png",
+      "metadata": {
+        "prompt": "A shot of a nail tech presenting a brand new, sealed file and sterile cotton swab to a client at the start of a service. The client looks pleased and confident.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-014-f",
+      "atom_type": "visual",
+      "asset_id": "block_014/slide_f.png",
+      "metadata": {
+        "prompt": "A final, bold text graphic: \"ONE CLIENT. ONE SERVICE. ONE & DONE.\"",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "script-014",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "A regular client comes in for a manicure. You see the emery board you used on her last time, which you saved in a little bag with her name on it. Is it okay to use it again? The answer is a hard no.",
+        "COSMETOLOGY_CONNECTION": "This is one of the most misunderstood rules. While it might seem economical or personalized to save items for a client, it's a dangerous practice that violates the core principle of sanitation: preventing cross-contamination.",
+        "THE_LAW": "The law is absolute: single-use items must be discarded after use on a single client. Saving a porous item like an emery board, even for the same client, is a violation because you cannot store it in a sanitary manner, and it could cross-contaminate other items."
+      },
+      "metadata": {
+        "full_script": "(\"Let's tackle a myth that has been around for way too long: the little baggie.\"),(\"You know, the one with a client's name on it, holding their 'personal' emery board from their last visit.\"),(\"It seems thoughtful, but it's actually a major sanitation foul.\"),(\"Let's do a power-up on the 'One Client' law.\")\n(\"The rule on single-use items is strict for a reason.\"),(\"They must be used on one client, during one service, and then immediately discarded.\"),(\"The concept of 'saving' a porous item (like an emery board) for a client, even if it's their 'personal' one, is a direct violation of this rule.\"),(\"Why?\"),(\"Because once that emery board is used, it's contaminated.\"),(\"You can't store it in a way that guarantees it won't grow bacteria or cross-contaminate other things in your drawer.\")\n(\"Think of that little baggie.\"),(\"You finish a manicure, you drop the used, contaminated file into the bag.\"),(\"What's in that bag now?\"),(\"Microbes, skin cells, and a dark environment.\"),(\"It's a perfect breeding ground for bacteria.\"),(\"Then you toss that baggie back into your clean drawer.\"),(\"Now, you've potentially cross-contaminated your brand-new supplies.\"),(\"The law is designed to prevent this exact scenario.\"),(\"The only safe and compliant method is to throw the used item away and start fresh with a new one for every single service.\")\n(\"Let's kill this myth once and for all.\"),(\"There is no such thing as a 'personal, reusable' emery board in the salon.\"),(\"The rule is One Client, One Service, One and Done.\"),(\"Always start fresh.\"),(\"It\u2019s the only way to be sure.\")\n"
+      }
+    },
+    {
+      "atom_id": "aud-014",
+      "atom_type": "audio",
+      "asset_id": "block_014/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-014"
+      }
+    }
+  ]
+}

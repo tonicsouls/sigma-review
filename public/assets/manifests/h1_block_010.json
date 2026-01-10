@@ -1,0 +1,93 @@
+{
+  "block_id": "010",
+  "block_title": "Multi-Use Items: The Keepers",
+  "lesson_title": "Hour 1 Lesson",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.100(6)",
+  "atoms": [
+    {
+      "atom_id": "vis-010-a",
+      "atom_type": "visual",
+      "asset_id": "block_010/slide_a.png",
+      "metadata": {
+        "prompt": "A fun, animated sorting game. A conveyor belt has various tools on it. A giant robotic arm sorts them into two bins: one labeled \"KEEPERS (Multi-Use)\" and one labeled \"TOSS (Single-Use)\".",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-010-b",
+      "atom_type": "visual",
+      "asset_id": "block_010/slide_b.png",
+      "metadata": {
+        "prompt": "A close-up shot showcasing the texture and quality of multi-use materials. A shiny pair of metal shears, a sparkling glass bowl, and a sturdy hard plastic comb are arranged beautifully.",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-010-c",
+      "atom_type": "visual",
+      "asset_id": "block_010/slide_c.png",
+      "metadata": {
+        "prompt": "A graphic with three icons: a magnet (for metal), a glass cup (for glass), and a plastic block (for plastic). Text below reads: \"Hard, Non-Porous Materials\".",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-010-d",
+      "atom_type": "visual",
+      "asset_id": "block_010/slide_d.png",
+      "metadata": {
+        "prompt": "A split-screen comparison. On the left, a pair of metal tweezers with a large green checkmark. On the right, a wooden cuticle stick with a large red 'X'.",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-010-e",
+      "atom_type": "visual",
+      "asset_id": "block_010/slide_e.png",
+      "metadata": {
+        "prompt": "A satisfying shot of a variety of multi-use tools (combs, clips, guards) being submerged in a disinfectant bath.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-010-f",
+      "atom_type": "visual",
+      "asset_id": "block_010/slide_f.png",
+      "metadata": {
+        "prompt": "A shot of a perfectly organized drawer in a salon, showing clean, disinfected multi-use tools neatly arranged and ready for the next service.",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "vis-010-g",
+      "atom_type": "visual",
+      "asset_id": "block_010/slide_g.png",
+      "metadata": {
+        "prompt": "A professional stylist selecting a clean, disinfected tool from their organized station, ready to begin a service on a client.",
+        "description": "Slide G"
+      }
+    },
+    {
+      "atom_id": "script-010",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "You've finished a service and your station is full of tools. It's time to play 'Keep or Toss?' Let's focus on the keepers: the multi-use items you'll be cleaning, disinfecting, and using again.",
+        "COSMETOLOGY_CONNECTION": "Identifying your multi-use items correctly is key to both safety and profitability. These are the workhorses of your kit, and knowing how to properly care for them is a fundamental skill for any licensed professional.",
+        "THE_LAW": "The law defines multi-use items as being made of a hard, non-porous material that can be cleaned and disinfected. This includes materials like stainless steel, glass, and hard plastics. If it's not porous, it's potentially a keeper."
+      },
+      "metadata": {
+        "full_script": "(\"Alright, let's simplify your cleanup routine.\"),(\"When you look at your station after a service, your tools fall into two categories: the keepers and the disposables.\"),(\"We're going to focus on the keepers.\"),(\"Let's do a power-up on identifying your multi-use items.\")\n(\"The definition is your best friend here.\"),(\"A multi-use item is any tool that is constructed of a hard, non-porous material.\"),(\"This means it's durable enough to be cleaned and then fully disinfected, over and over again.\"),(\"We're talking about the workhorses of your kit.\"),(\"Your stainless-steel shears, your glass dappen dishes, your hard plastic combs and clips.\"),(\"These are investments, and the rules are designed to help you care for them properly.\")\n(\"Think of a pair of high-quality metal tweezers.\"),(\"The surface is non-porous.\"),(\"You can wash them with soap and water to remove any visible residue, and then you can fully submerge them in a high-level, EPA-registered disinfectant for the full contact time.\"),(\"Because they are properly constructed, they can be made safe for the next client.\"),(\"Now compare that to a wooden cuticle stick.\"),(\"Can you do the same thing?\"),(\"No.\"),(\"The wood is porous, and it can't be reliably disinfected.\"),(\"The tweezers are a classic multi-use item; the wooden stick is not.\")\n(\"So the rule to remember is simple: if it's hard and non-porous, it's a keeper.\"),(\"Your metal, glass, and hard plastic tools are designed to be multi-use.\"),(\"Know them, clean them, disinfect them, and they'll be your trusted partners for years to come.\")\n"
+      }
+    },
+    {
+      "atom_id": "aud-010",
+      "atom_type": "audio",
+      "asset_id": "block_010/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-010"
+      }
+    }
+  ]
+}

@@ -2,11 +2,12 @@
 
 // --- ATOM DEFINITIONS ---
 
-export type AtomType = 'script' | 'visual' | 'audio' | 'quiz' | 'reinforcement' | 'download';
+export type AtomType = 'script' | 'visual' | 'audio' | 'quiz' | 'reinforcement' | 'download' | 'Mixed' | 'Video' | 'FlashCard' | 'ImageSelect';
 
 export interface BaseAtom {
     atom_id: string;
     atom_type: AtomType;
+    url?: string; // Resolved URL for frontend use
     metadata?: Record<string, any>;
 }
 

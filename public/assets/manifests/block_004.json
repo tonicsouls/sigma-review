@@ -1,20 +1,90 @@
 {
   "block_id": "004",
-  "block_title": "Block 004 - Disinfection Deep Dive",
-  "lesson_title": "Lesson 4",
+  "block_title": "Block 004",
+  "lesson_title": "Lesson Demo",
   "hour_name": "Hour 1",
   "duration_minutes": 5,
-  "tdlr_citation": "Advanced disinfection steps",
+  "tdlr_citation": "\u00a783.100",
   "atoms": [
-    {"atom_id":"vis-004-a","atom_type":"visual","asset_id":"block_004/slide_a.png","metadata":{"description":"Setup"}},
-    {"atom_id":"vis-004-b","atom_type":"visual","asset_id":"block_004/slide_b.png","metadata":{"description":"Step 1"}},
-    {"atom_id":"vis-004-c","atom_type":"visual","asset_id":"block_004/slide_c.png","metadata":{"description":"Step 2"}},
-    {"atom_id":"vis-004-d","atom_type":"visual","asset_id":"block_004/slide_d.png","metadata":{"description":"Step 3"}},
-    {"atom_id":"vis-004-e","atom_type":"visual","asset_id":"block_004/slide_e.png","metadata":{"description":"Step 4"}},
-    {"atom_id":"vis-004-f","atom_type":"visual","asset_id":"block_004/slide_f.png","metadata":{"description":"Step 5"}},
-    {"atom_id":"vis-004-g","atom_type":"visual","asset_id":"block_004/slide_g.png","metadata":{"description":"Step 6"}},
-    {"atom_id":"script-004","atom_type":"script","metadata":{"speaker":"Instructor"},"content":{"SCENARIO":"Demonstrating thorough disinfection workflow end-to-end.","COSMETOLOGY_CONNECTION":"Ensures compliance and client safety.","THE_LAW":"Follow state-mandated disinfection standards for implements and surfaces."}},
-    {"atom_id":"aud-004","atom_type":"audio","asset_id":"block_004/audio.wav","metadata":{"linked_script_atom":"script-004","duration":120,"speaker":"Instructor voice"}},
-    {"atom_id":"quiz-004","atom_type":"quiz","quiz_type":"multiple-choice","metadata":{"difficulty":"intermediate","points":10},"content":{"question":"What is the correct order of disinfection steps?","options":[{"text":"Clean, Disinfect, Rinse, Dry, Store","isCorrect":true},{"text":"Disinfect, Clean, Store","isCorrect":false},{"text":"Store, Clean, Disinfect","isCorrect":false}],"feedback":"Follow the full sequence to ensure effectiveness and safety."}}
+    {
+      "atom_id": "vis-004-a",
+      "atom_type": "visual",
+      "asset_id": "block_004/slide_a.png",
+      "metadata": {
+        "prompt": "An engaging graphic showing three separate, clearly labeled spray bottles. They are labeled \"LOW-LEVEL,\" \"HIGH-LEVEL,\" and \"10% SOLUTION.\" Each bottle has a different color liquid (e.g., light blue, medium blue, reddish-orange) for visual distinction.",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-004-b",
+      "atom_type": "visual",
+      "asset_id": "block_004/slide_b.png",
+      "metadata": {
+        "prompt": "A shot of a person in stylish cleaning gear mopping a beautiful, clean salon floor. The motion is active and energetic. A text overlay reads: \"LOW-LEVEL: For general surfaces.\"",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-004-c",
+      "atom_type": "visual",
+      "asset_id": "block_004/slide_c.png",
+      "metadata": {
+        "prompt": "A close-up of clean combs and brushes being submerged in a container of disinfectant. A text overlay reads: \"HIGH-LEVEL: For disinfecting your tools.\"",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-004-d",
+      "atom_type": "visual",
+      "asset_id": "block_004/slide_d.png",
+      "metadata": {
+        "prompt": "A simulated, non-graphic image of a red drop on a white countertop. A gloved hand is seen coming into the frame with a spray bottle clearly labeled \"10% SOLUTION.\" Text overlay: \"10% SOLUTION: For blood spills ONLY.\"",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-004-e",
+      "atom_type": "visual",
+      "asset_id": "block_004/slide_e.png",
+      "metadata": {
+        "prompt": "A split-screen image. On the left, a mop bucket with a green checkmark. On the right, the same mop bucket near the red drop with a large red 'X' over it, showing you can't use the wrong tool.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-004-f",
+      "atom_type": "visual",
+      "asset_id": "block_004/slide_f.png",
+      "metadata": {
+        "prompt": "A graphic showing three icons: a floor, a comb, and a blood drop. Lines connect each icon to its correctly labeled bleach solution from the first image.",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "vis-004-g",
+      "atom_type": "visual",
+      "asset_id": "block_004/slide_g.png",
+      "metadata": {
+        "prompt": "A final shot of a confident salon professional, leaning against their impeccably clean station. They look knowledgeable and in control.",
+        "description": "Slide G"
+      }
+    },
+    {
+      "atom_id": "script-004",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "N/A",
+        "COSMETOLOGY_CONNECTION": "N/A",
+        "THE_LAW": "N/A"
+      }
+    },
+    {
+      "atom_id": "aud-004",
+      "atom_type": "audio",
+      "asset_id": "block_004/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-004"
+      }
+    }
   ]
 }

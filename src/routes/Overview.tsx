@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useReviewStore } from '../store/useReviewStore';
 import { loadHourBlocks } from '../utils/dataLoader';
@@ -12,16 +12,17 @@ interface HourStats {
   reviewed: number;
   pending: number;
   corrections: number;
+  previewImage?: string;
 }
 
 export const Overview: React.FC = () => {
   const navigate = useNavigate();
-  const { preferences, corrections, exportCorrections } = useReviewStore();
+  const { preferences, corrections } = useReviewStore();
   const [hours, setHours] = useState<HourStats[]>([]);
   const [loading, setLoading] = useState(true);
 
   const handleExportAll = () => {
-    const json = exportCorrections();
+    const json = JSON.stringify({ corrections }, null, 2);
     const blob = new Blob([json], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -52,6 +53,7 @@ export const Overview: React.FC = () => {
             reviewed,
             pending,
             corrections,
+            previewImage: blocks[0]?.images[0]
           });
         } catch (err) {
           const errMsg = err instanceof Error ? err.message : `Failed to load Hour ${i}`;
@@ -131,7 +133,7 @@ export const Overview: React.FC = () => {
                 className="group bg-white dark:bg-[#111318] rounded-xl border border-slate-200 dark:border-slate-800 p-6 cursor-pointer hover:shadow-lg hover:border-primary/30 transition-all duration-200 flex flex-col"
               >
                 {/* Hour Header */}
-                <div className="flex items-start justify-between mb-6">
+                <div className="flex items-start justify-between mb-4">
                   <div>
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Hour {String(hour.hourId).padStart(2, '0')}</h3>
                     <p className="text-sm text-slate-500 mt-1">{hour.title}</p>
@@ -139,6 +141,22 @@ export const Overview: React.FC = () => {
                   <div className="text-3xl group-hover:scale-110 transition-transform">
                     <span className="material-symbols-outlined text-slate-400 dark:text-slate-600">schedule</span>
                   </div>
+                </div>
+
+                {/* Preview Image */}
+                <div className="mb-6 aspect-video w-full rounded-lg bg-slate-100 dark:bg-[#1c1f27] overflow-hidden border border-slate-200 dark:border-slate-800 relative">
+                  {hour.previewImage ? (
+                    <img
+                      src={hour.previewImage}
+                      alt={`Preview Hour ${hour.hourId}`}
+                      className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <span className="material-symbols-outlined text-4xl text-slate-300 dark:text-slate-700">video_library</span>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
 
                 {/* Stats Grid */}

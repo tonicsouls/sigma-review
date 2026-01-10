@@ -1,0 +1,129 @@
+{
+  "block_id": "001",
+  "block_title": "Block 001",
+  "lesson_title": "Hour 3 Lesson",
+  "hour_name": "Hour 3",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.100",
+  "atoms": [
+    {
+      "atom_id": "vis-001-a",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_a.jpeg",
+      "metadata": {
+        "prompt": "Shot A",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-001-b",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_b.jpeg",
+      "metadata": {
+        "prompt": "Shot B",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-001-c",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_c.jpeg",
+      "metadata": {
+        "prompt": "Shot C",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-001-d",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_d.jpeg",
+      "metadata": {
+        "prompt": "Shot D",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-001-e",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_e.jpeg",
+      "metadata": {
+        "prompt": "Shot E",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-001-f",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_f.jpeg",
+      "metadata": {
+        "prompt": "Shot F",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "vis-001-g",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_g.jpeg",
+      "metadata": {
+        "prompt": "Shot G",
+        "description": "Slide G"
+      }
+    },
+    {
+      "atom_id": "vis-001-h",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_h.jpeg",
+      "metadata": {
+        "prompt": "Shot H",
+        "description": "Slide H"
+      }
+    },
+    {
+      "atom_id": "vis-001-i",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_i.jpeg",
+      "metadata": {
+        "prompt": "Shot I",
+        "description": "Slide I"
+      }
+    },
+    {
+      "atom_id": "vis-001-j",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_j.jpeg",
+      "metadata": {
+        "prompt": "Shot J",
+        "description": "Slide J"
+      }
+    },
+    {
+      "atom_id": "vis-001-k",
+      "atom_type": "visual",
+      "asset_id": "block_001/slide_k.jpeg",
+      "metadata": {
+        "prompt": "Shot K",
+        "description": "Slide K"
+      }
+    },
+    {
+      "atom_id": "script-001",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "N/A",
+        "COSMETOLOGY_CONNECTION": "N/A",
+        "THE_LAW": "N/A"
+      },
+      "metadata": {
+        "full_script": "N/A"
+      }
+    },
+    {
+      "atom_id": "aud-001",
+      "atom_type": "audio",
+      "asset_id": "block_001/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-001"
+      }
+    }
+  ]
+}

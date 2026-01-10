@@ -1,0 +1,81 @@
+{
+  "block_id": "008",
+  "block_title": "Block 008",
+  "lesson_title": "Lesson Demo",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.100",
+  "atoms": [
+    {
+      "atom_id": "vis-008-a",
+      "atom_type": "visual",
+      "asset_id": "block_008/slide_a.png",
+      "metadata": {
+        "prompt": "A gloved hand spraying a disinfectant on a clean countertop. The shot is dynamic, with the spray catching the light.",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-008-b",
+      "atom_type": "visual",
+      "asset_id": "block_008/slide_b.png",
+      "metadata": {
+        "prompt": "A close-up on the back of a disinfectant bottle, with the words \"CONTACT TIME: 10 MINUTES\" highlighted by a glowing animated circle.",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-008-c",
+      "atom_type": "visual",
+      "asset_id": "block_008/slide_c.png",
+      "metadata": {
+        "prompt": "A shot of a person spraying a surface and immediately wiping it with a paper towel. A giant, red, animated 'X' appears over the image with the text \"NO! Don't wipe yet!\".",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-008-d",
+      "atom_type": "visual",
+      "asset_id": "block_008/slide_d.png",
+      "metadata": {
+        "prompt": "A shot of a stylist setting a cool, modern digital timer on their station next to a freshly sprayed, wet surface. The timer reads \"10:00\".",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-008-e",
+      "atom_type": "visual",
+      "asset_id": "block_008/slide_e.png",
+      "metadata": {
+        "prompt": "A time-lapse style animation showing the timer counting down while animated germs on the wet surface are slowly zapped out of existence.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-008-f",
+      "atom_type": "visual",
+      "asset_id": "block_008/slide_f.png",
+      "metadata": {
+        "prompt": "The timer hits \"00:00\" and a gloved hand comes in and confidently wipes the now-disinfected surface dry with a clean cloth. The surface sparkles.",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "script-008",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "N/A",
+        "COSMETOLOGY_CONNECTION": "N/A",
+        "THE_LAW": "N/A"
+      }
+    },
+    {
+      "atom_id": "aud-008",
+      "atom_type": "audio",
+      "asset_id": "block_008/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-008"
+      }
+    }
+  ]
+}

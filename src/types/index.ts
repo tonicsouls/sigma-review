@@ -22,7 +22,7 @@ export interface Block {
     blockId: string;
     hourId: string;
     title: string;
-    atomType: 'Video' | 'FlashCard' | 'ImageSelect' | 'Mixed' | 'script' | 'visual' | 'audio';
+    atomType: string;
     durationMinutes: number;
     images: string[];
     audio?: string;

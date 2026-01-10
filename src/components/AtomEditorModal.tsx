@@ -8,14 +8,12 @@ interface AtomFeedback {
 
 interface AtomEditorModalProps {
   atom: VisualAtom;
-  blockId: string;
   onClose: () => void;
   onSave: (feedback: AtomFeedback) => void;
 }
 
 export const AtomEditorModal: React.FC<AtomEditorModalProps> = ({
   atom,
-  blockId,
   onClose,
   onSave,
 }) => {
@@ -37,7 +35,7 @@ export const AtomEditorModal: React.FC<AtomEditorModalProps> = ({
         {/* Header */}
         <div className="sticky top-0 flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111318] shrink-0">
           <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-            Review Slide {atom.id.toUpperCase()}
+            Review Slide {atom.atom_id.toUpperCase()}
           </h2>
           <button
             onClick={onClose}
@@ -55,7 +53,7 @@ export const AtomEditorModal: React.FC<AtomEditorModalProps> = ({
               <img
                 src={`http://localhost:5173${atom.url}?t=${Date.now()}`}
                 className="max-h-full max-w-full object-contain"
-                alt={`Slide ${atom.id}`}
+                alt={`Slide ${atom.atom_id}`}
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = 'https://placeholder.pics/svg/800x600/333333/AAAAAA/Missing';
                 }}

@@ -1,0 +1,90 @@
+{
+  "block_id": "013",
+  "block_title": "Block 013",
+  "lesson_title": "Lesson Demo",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.100",
+  "atoms": [
+    {
+      "atom_id": "vis-013-a",
+      "atom_type": "visual",
+      "asset_id": "block_013/slide_a.png",
+      "metadata": {
+        "prompt": "A fun graphic where single-use items (an emery board, a cotton ball, an orangewood stick) are shown with little superhero capes, flying into a trash can. The title reads \"The Unsung Heroes\".",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-013-b",
+      "atom_type": "visual",
+      "asset_id": "block_013/slide_b.png",
+      "metadata": {
+        "prompt": "A macro shot of a drop of water instantly absorbing into the surface of a paper towel, visually explaining what 'porous' means.",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-013-c",
+      "atom_type": "visual",
+      "asset_id": "block_013/slide_c.png",
+      "metadata": {
+        "prompt": "A clear graphic with three icons: a tree (for wood), a piece of paper, and a cotton ball. Text below reads: \"Porous Materials = Single-Use\".",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-013-d",
+      "atom_type": "visual",
+      "asset_id": "block_013/slide_d.png",
+      "metadata": {
+        "prompt": "A shot of a nail technician's drawer, but it's filled with used, dirty-looking emery boards and used orangewood sticks. A big, red, animated 'X' stamps over the drawer.",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-013-e",
+      "atom_type": "visual",
+      "asset_id": "block_013/slide_e.png",
+      "metadata": {
+        "prompt": "A satisfying shot of a gloved hand decisively dropping a used emery board into a hands-free trash can after a service.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-013-f",
+      "atom_type": "visual",
+      "asset_id": "block_013/slide_f.png",
+      "metadata": {
+        "prompt": "A shot of a nail technician opening a brand new, sealed pack containing a new file and sterile cotton swab for a client, showcasing perfect hygiene.",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "vis-013-g",
+      "atom_type": "visual",
+      "asset_id": "block_013/slide_g.png",
+      "metadata": {
+        "prompt": "The phrase \"WHEN IN DOUBT, THROW IT OUT\" appears in big, bold, friendly letters on the screen, holding as the final message.",
+        "description": "Slide G"
+      }
+    },
+    {
+      "atom_id": "script-013",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "N/A",
+        "COSMETOLOGY_CONNECTION": "N/A",
+        "THE_LAW": "N/A"
+      }
+    },
+    {
+      "atom_id": "aud-013",
+      "atom_type": "audio",
+      "asset_id": "block_013/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-013"
+      }
+    }
+  ]
+}

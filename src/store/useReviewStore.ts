@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 // Define types inline to avoid runtime import issues
-import type { AnyAtom } from '../services/stitcher';
 
 // --- Types ---
 
@@ -9,7 +8,7 @@ export type Block = {
     blockId: string;
     hourId: string;
     title: string;
-    atomType: 'Video' | 'FlashCard' | 'ImageSelect' | 'Mixed' | 'script' | 'visual' | 'audio';
+    atomType: string;
     durationMinutes: number;
     images: string[];
     audio?: string;
@@ -17,7 +16,7 @@ export type Block = {
     audioScript?: string;
     citation?: string;
     status?: 'pending' | 'reviewed' | 'has_notes';
-    rawAtoms?: AnyAtom[];
+    rawAtoms?: any[];
 };
 
 export type Correction = {
@@ -54,15 +53,13 @@ interface ReviewState {
         backendUrl: string;
     };
     setPreference: <K extends keyof ReviewState['preferences']>(key: K, value: ReviewState['preferences'][K]) => void;
-
-    exportCorrections: () => string;
 }
 
 // --- Store ---
 
 export const useReviewStore = create<ReviewState>()(
     persist(
-        (set, get) => ({
+        (set) => ({
             blocks: [],
             corrections: [],
             selectedHour: null,
@@ -136,11 +133,6 @@ export const useReviewStore = create<ReviewState>()(
             deleteCorrection: (id: string) => set((state) => ({
                 corrections: state.corrections.filter((c) => c.id !== id),
             })),
-
-            exportCorrections: () => {
-                const { corrections } = get();
-                return JSON.stringify({ corrections }, null, 2);
-            },
 
             setPreference: (key, value) => set((state) => ({
                 preferences: { ...state.preferences, [key]: value }

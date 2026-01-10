@@ -1,0 +1,81 @@
+{
+  "block_id": "011",
+  "block_title": "Block 011",
+  "lesson_title": "Lesson Demo",
+  "hour_name": "Hour 1",
+  "duration_minutes": 5,
+  "tdlr_citation": "\u00a783.100",
+  "atoms": [
+    {
+      "atom_id": "vis-011-a",
+      "atom_type": "visual",
+      "asset_id": "block_011/slide_a.png",
+      "metadata": {
+        "prompt": "An energetic title card that says \"THE RITUAL\" with two icons below it: a scrub brush and a bubbling jar. An arrow points from the brush to the jar, emphasizing the order.",
+        "description": "Slide A"
+      }
+    },
+    {
+      "atom_id": "vis-011-b",
+      "atom_type": "visual",
+      "asset_id": "block_011/slide_b.png",
+      "metadata": {
+        "prompt": "A close-up shot of gloved hands using a small, stiff brush to scrub the teeth of a comb under running water. The focus is on the cleaning action.",
+        "description": "Slide B"
+      }
+    },
+    {
+      "atom_id": "vis-011-c",
+      "atom_type": "visual",
+      "asset_id": "block_011/slide_c.png",
+      "metadata": {
+        "prompt": "A close-up studio shot of a styling comb on a white surface. The comb has some visible hair strands caught in the teeth, indicating it needs cleaning. High definition, professional lighting.",
+        "description": "Slide C"
+      }
+    },
+    {
+      "atom_id": "vis-011-d",
+      "atom_type": "visual",
+      "asset_id": "block_011/slide_d.png",
+      "metadata": {
+        "prompt": "A shot of a dirty comb being dropped into a disinfectant jar, with a huge, red, animated 'X' stamping on the screen. The water turns cloudy and gross.",
+        "description": "Slide D"
+      }
+    },
+    {
+      "atom_id": "vis-011-e",
+      "atom_type": "visual",
+      "asset_id": "block_011/slide_e.png",
+      "metadata": {
+        "prompt": "A satisfying shot of a perfectly clean comb being gently lowered into a crystal-clear jar of blue disinfectant. Bubbles rise, and the shot is clean and professional.",
+        "description": "Slide E"
+      }
+    },
+    {
+      "atom_id": "vis-011-f",
+      "atom_type": "visual",
+      "asset_id": "block_011/slide_f.png",
+      "metadata": {
+        "prompt": "A final split screen. On the left, a \"Scrub\" icon with a checkmark. On the right, a \"Soak\" icon with a checkmark. The title above reads: \"Scrub THEN Soak. Always.\"",
+        "description": "Slide F"
+      }
+    },
+    {
+      "atom_id": "script-011",
+      "atom_type": "script",
+      "content": {
+        "SCENARIO": "N/A",
+        "COSMETOLOGY_CONNECTION": "N/A",
+        "THE_LAW": "N/A"
+      }
+    },
+    {
+      "atom_id": "aud-011",
+      "atom_type": "audio",
+      "asset_id": "block_011/audio.wav",
+      "metadata": {
+        "linked_script_atom": "script-011"
+      }
+    }
+  ]
+}
